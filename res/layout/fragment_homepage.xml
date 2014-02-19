@@ -3,24 +3,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#66ccff" >
-    
+    android:background="#f1f0f0" >
+    <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="choose a bartender~"
+        android:layout_margin="5dp"
+        android:padding="3dp"
+        android:background="@drawable/zqlayoutshape"
+        android:textSize="24sp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.45"
         android:orientation="horizontal">
         
-        <ImageButton android:id="@+id/FaverateButton"
+        <Button android:id="@+id/FaverateButton"
         android:layout_height="match_parent"
         android:layout_width="0dp"
         android:layout_weight="0.5"
+        android:layout_margin="5dp"
+		android:background="@drawable/chooseselector"
         android:text="My Faverate" />
         
-        <ImageButton android:id="@+id/coffeeButton"
+        <Button android:id="@+id/coffeeButton"
         android:layout_height="match_parent"
         android:layout_width="0dp"
         android:layout_weight="0.5"
+        android:layout_margin="5dp"
+		android:background="@drawable/chooseselector"
         android:text="Coffee" />
         
     </LinearLayout>
@@ -28,19 +40,24 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.45"
+        
         android:orientation="horizontal">
         
-        <ImageButton android:id="@+id/teaButton"
+        <Button android:id="@+id/teaButton"
         android:layout_height="match_parent"
         android:layout_width="0dp"
         android:layout_weight="0.5"
+        android:layout_margin="5dp"
+		android:background="@drawable/chooseselector"
         android:text="Tea" />
         
-        <ImageButton android:id="@+id/othersButton"
+        <Button android:id="@+id/waterButton"
         android:layout_height="match_parent"
         android:layout_width="0dp"
         android:layout_weight="0.5"
-        android:text="Others" />
+        android:layout_margin="5dp"
+		android:background="@drawable/chooseselector"
+        android:text="Hot Water" />
         
     </LinearLayout>
     <LinearLayout

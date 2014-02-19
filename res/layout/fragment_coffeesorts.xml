@@ -9,9 +9,9 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:background="@drawable/zqlayoutshape"
-        android:text="choose your position~"
         android:layout_margin="5dp"
         android:padding="3dp"
+        android:text="choose your preference~"
         android:textSize="24sp"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,21 +19,21 @@
         android:layout_weight="0.45"
         android:orientation="horizontal">
         
-        <Button android:id="@+id/driverSeatButton"
+        <Button android:id="@+id/espressoButton"
         android:layout_height="match_parent"
         android:layout_width="0dp"
         android:layout_weight="0.5"
         android:layout_margin="5dp"
 		android:background="@drawable/chooseselector"
-        android:text="I'm Driver" />
+        android:text="espresso" />
         
-        <Button android:id="@+id/codriverSeatButton"
+        <Button android:id="@+id/doubleButton"
         android:layout_height="match_parent"
         android:layout_width="0dp"
         android:layout_weight="0.5"
         android:layout_margin="5dp"
 		android:background="@drawable/chooseselector"
-        android:text="I'm Co-Driver" />
+        android:text="double espresso" />
         
     </LinearLayout>
     <LinearLayout
@@ -42,29 +42,21 @@
         android:layout_weight="0.45"
         android:orientation="horizontal">
         
-        <Button android:id="@+id/rearLeftButton"
+        <Button android:id="@+id/cus1Button"
         android:layout_height="match_parent"
         android:layout_width="0dp"
-        android:layout_weight="0.4"
+        android:layout_weight="0.5"
         android:layout_margin="5dp"
 		android:background="@drawable/chooseselector"
-        android:text="I'm RearLeft!" />
+        android:text="custom1" />
         
-        <Button android:id="@+id/rearMidButton"
+        <Button android:id="@+id/cus2Button"
         android:layout_height="match_parent"
         android:layout_width="0dp"
-        android:layout_weight="0.2"
+        android:layout_weight="0.5"
         android:layout_margin="5dp"
 		android:background="@drawable/chooseselector"
-        android:text="I'm RearMid!" />
-        
-        <Button android:id="@+id/rearRightButton"
-        android:layout_height="match_parent"
-        android:layout_width="0dp"
-        android:layout_weight="0.4"
-        android:layout_margin="5dp"
-		android:background="@drawable/chooseselector"
-        android:text="I'm RearRight!" />
+        android:text="custom2" />
         
     </LinearLayout>
     <LinearLayout

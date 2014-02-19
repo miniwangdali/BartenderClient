@@ -5,22 +5,28 @@
     android:orientation="horizontal"
     android:background="#bcbcbc" >
     
-    <ImageButton android:id="@+id/beverageOrderButton"
+    <Button android:id="@+id/beverageOrderButton"
         android:layout_height="match_parent"
         android:layout_width="0dp"
         android:layout_weight="0.4"
+        android:layout_margin="5dp"
+        android:background="@drawable/buttonselector"
         android:text="beverage" />
     
-    <ImageButton android:id="@+id/seatOrderButton"
+    <Button android:id="@+id/seatOrderButton"
         android:layout_height="match_parent"
         android:layout_width="0dp"
         android:layout_weight="0.4"
+        android:layout_margin="5dp"
+        android:background="@drawable/buttonselector"
         android:text="seat" />
     
-    <ImageButton android:id="@+id/goOrderButton"
+    <Button android:id="@+id/goOrderButton"
         android:layout_height="match_parent"
         android:layout_width="0dp"
         android:layout_weight="0.2"
+        android:background="@drawable/goselector"
+        android:layout_margin="5dp"
         android:text="GO!" />
 
 </LinearLayout>

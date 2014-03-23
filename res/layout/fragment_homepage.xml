@@ -4,67 +4,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#f1f0f0" >
-    <TextView 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="choose a bartender~"
-        android:layout_margin="5dp"
-        android:padding="3dp"
-        android:background="@drawable/zqlayoutshape"
-        android:textSize="24sp"/>
-    <LinearLayout
+    <ImageButton 
+        android:id="@+id/myfavorBtn"
+        android:scaleType="fitCenter"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.45"
-        android:orientation="horizontal">
-        
-        <Button android:id="@+id/FaverateButton"
-        android:layout_height="match_parent"
-        android:layout_width="0dp"
-        android:layout_weight="0.5"
-        android:layout_margin="5dp"
-		android:background="@drawable/chooseselector"
-        android:text="My Faverate" />
-        
-        <Button android:id="@+id/coffeeButton"
-        android:layout_height="match_parent"
-        android:layout_width="0dp"
-        android:layout_weight="0.5"
-        android:layout_margin="5dp"
-		android:background="@drawable/chooseselector"
-        android:text="Coffee" />
-        
-    </LinearLayout>
-    <LinearLayout
+        android:layout_weight="6"
+        android:src="@drawable/myfavor"
+        android:background="@android:color/transparent"/>
+    <ImageButton
+        android:id="@+id/customBtn"
+        android:scaleType="fitEnd"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.45"
-        
-        android:orientation="horizontal">
-        
-        <Button android:id="@+id/teaButton"
-        android:layout_height="match_parent"
-        android:layout_width="0dp"
-        android:layout_weight="0.5"
-        android:layout_margin="5dp"
-		android:background="@drawable/chooseselector"
-        android:text="Tea" />
-        
-        <Button android:id="@+id/waterButton"
-        android:layout_height="match_parent"
-        android:layout_width="0dp"
-        android:layout_weight="0.5"
-        android:layout_margin="5dp"
-		android:background="@drawable/chooseselector"
-        android:text="Hot Water" />
-        
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.1">
-        
-    </LinearLayout>
+        android:layout_weight="2"
+        android:src="@drawable/custom"
+        android:background="@android:color/transparent" />
 
 </LinearLayout>

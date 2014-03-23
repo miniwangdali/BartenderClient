@@ -11,40 +11,48 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int buttonselector=0x7f020000;
-        public static final int chooseselector=0x7f020001;
-        public static final int goselector=0x7f020002;
-        public static final int ic_launcher=0x7f020003;
-        public static final int shadeshape=0x7f020004;
-        public static final int zqlayoutshape=0x7f020005;
+        public static final int button=0x7f020000;
+        public static final int button_pressed=0x7f020001;
+        public static final int buttonselector=0x7f020002;
+        public static final int chooseselector=0x7f020003;
+        public static final int custom=0x7f020004;
+        public static final int custom_pressed=0x7f020005;
+        public static final int goselector=0x7f020006;
+        public static final int ic_launcher=0x7f020007;
+        public static final int line=0x7f020008;
+        public static final int myfavor=0x7f020009;
+        public static final int myfavor_pressed=0x7f02000a;
+        public static final int shadeshape=0x7f02000b;
+        public static final int zqlayoutshape=0x7f02000c;
     }
     public static final class id {
-        public static final int FaverateButton=0x7f070006;
-        public static final int beverageOrderButton=0x7f07000a;
-        public static final int codriverSeatButton=0x7f07000e;
-        public static final int coffeeButton=0x7f070007;
+        public static final int beverageOrderButton=0x7f070008;
+        public static final int codriverSeatButton=0x7f07000c;
         public static final int cus1Button=0x7f070004;
         public static final int cus2Button=0x7f070005;
+        public static final int customBtn=0x7f070007;
         public static final int doubleButton=0x7f070003;
-        public static final int driverSeatButton=0x7f07000d;
+        public static final int driverSeatButton=0x7f07000b;
         public static final int espressoButton=0x7f070002;
-        public static final int goOrderButton=0x7f07000c;
+        public static final int goOrderButton=0x7f07000a;
         public static final int homepage_fragment=0x7f070001;
-        public static final int menu_settings=0x7f070012;
+        public static final int menu_settings=0x7f070011;
+        public static final int myfavorBtn=0x7f070006;
         public static final int orderlist_fragment=0x7f070000;
-        public static final int rearLeftButton=0x7f07000f;
-        public static final int rearMidButton=0x7f070010;
-        public static final int rearRightButton=0x7f070011;
-        public static final int seatOrderButton=0x7f07000b;
-        public static final int teaButton=0x7f070008;
-        public static final int waterButton=0x7f070009;
+        public static final int rearLeftButton=0x7f07000d;
+        public static final int rearMidButton=0x7f07000e;
+        public static final int rearRightButton=0x7f07000f;
+        public static final int seatOrderButton=0x7f070009;
+        public static final int tasteTxt=0x7f070010;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int fragment_coffeesorts=0x7f030001;
-        public static final int fragment_homepage=0x7f030002;
-        public static final int fragment_orderlist=0x7f030003;
-        public static final int fragment_seatpage=0x7f030004;
+        public static final int fragment_custompage=0x7f030002;
+        public static final int fragment_homepage=0x7f030003;
+        public static final int fragment_orderlist=0x7f030004;
+        public static final int fragment_seatpage=0x7f030005;
+        public static final int listline=0x7f030006;
     }
     public static final class menu {
         public static final int activity_main=0x7f060000;

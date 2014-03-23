@@ -23,17 +23,15 @@
         android:layout_height="match_parent"
         android:layout_width="0dp"
         android:layout_weight="0.5"
-        android:layout_margin="5dp"
 		android:background="@drawable/chooseselector"
-        android:text="I'm Driver" />
+        android:text="Driver" />
         
         <Button android:id="@+id/codriverSeatButton"
         android:layout_height="match_parent"
         android:layout_width="0dp"
         android:layout_weight="0.5"
-        android:layout_margin="5dp"
 		android:background="@drawable/chooseselector"
-        android:text="I'm Co-Driver" />
+        android:text="Co-Driver" />
         
     </LinearLayout>
     <LinearLayout
@@ -46,25 +44,22 @@
         android:layout_height="match_parent"
         android:layout_width="0dp"
         android:layout_weight="0.4"
-        android:layout_margin="5dp"
 		android:background="@drawable/chooseselector"
-        android:text="I'm RearLeft!" />
+        android:text="RearLeft" />
         
         <Button android:id="@+id/rearMidButton"
         android:layout_height="match_parent"
         android:layout_width="0dp"
         android:layout_weight="0.2"
-        android:layout_margin="5dp"
 		android:background="@drawable/chooseselector"
-        android:text="I'm RearMid!" />
+        android:text="Mid" />
         
         <Button android:id="@+id/rearRightButton"
         android:layout_height="match_parent"
         android:layout_width="0dp"
         android:layout_weight="0.4"
-        android:layout_margin="5dp"
 		android:background="@drawable/chooseselector"
-        android:text="I'm RearRight!" />
+        android:text="RearRight" />
         
     </LinearLayout>
     <LinearLayout

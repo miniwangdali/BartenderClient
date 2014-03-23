@@ -14,63 +14,79 @@ import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 public class Fragment_HomePage extends Fragment {
 
-	Button myfavorButton,coffeeButton,teaButton, hotwaterButton,orderButton;
+	ImageButton myfavor, custom;
 	Fragment_Orderlist orderlist;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		View view = inflater.inflate(R.layout.fragment_homepage, container, false);
 		
-		myfavorButton = (Button)view.findViewById(R.id.FaverateButton);
-		coffeeButton = (Button)view.findViewById(R.id.coffeeButton);
-		teaButton = (Button)view.findViewById(R.id.teaButton);
-		hotwaterButton = (Button)view.findViewById(R.id.waterButton);
+		myfavor = (ImageButton)view.findViewById(R.id.myfavorBtn);
+		myfavor.setOnTouchListener(new OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				// TODO Auto-generated method stub
+				if( event.getAction() == MotionEvent.ACTION_DOWN ){
+					myfavor.setImageResource(R.drawable.myfavor_pressed);
+					myfavor.invalidate();
+				} else {
+					myfavor.setImageResource(R.drawable.myfavor);
+					myfavor.invalidate();
+				}
+				
+				return false;
+			}
+		});
+		myfavor.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				//loadFavor();
+				Toast.makeText(getActivity(), "MyFavor", Toast.LENGTH_LONG).show();
+			}
+		});
 		
-		myfavorButton.setOnClickListener(new ButtonOnClickListener(myfavorButton));
-		coffeeButton.setOnClickListener(new ButtonOnClickListener(coffeeButton));
-		teaButton.setOnClickListener(new ButtonOnClickListener(teaButton));
-		hotwaterButton.setOnClickListener(new ButtonOnClickListener(hotwaterButton));
+		custom = (ImageButton)view.findViewById(R.id.customBtn);
+		custom.setOnTouchListener(new OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				// TODO Auto-generated method stub
+				if( event.getAction() == MotionEvent.ACTION_DOWN ){
+					custom.setImageResource(R.drawable.custom_pressed);
+					custom.invalidate();
+				} else {
+					custom.setImageResource(R.drawable.custom);
+					custom.invalidate();
+				}
+				return false;
+			}
+		});
+		custom.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				FragmentManager fm = getFragmentManager();
+				FragmentTransaction ft = fm.beginTransaction();
+				Fragment_CustomPage fragment_CustomPage = new Fragment_CustomPage();
+				ft.replace(R.id.homepage_fragment, fragment_CustomPage);
+				ft.addToBackStack(null);
+				ft.commit();
+				
+			}
+		});
 		
 		
 		return view;
 	}
 	
-	private class ButtonOnClickListener implements OnClickListener {
-
-		private Button button;
-		public ButtonOnClickListener(Button btn){
-			super();
-			this.button = btn;
-		}
 		
-		@Override
-		public void onClick(View v) {
-			// TODO Auto-generated method stub
-			Variable.setBartenderOrder(button.getText().toString());
-			orderlist = (Fragment_Orderlist)getActivity().getFragmentManager().findFragmentById(R.id.orderlist_fragment);
-			orderButton = (Button)orderlist.getView().findViewById(R.id.beverageOrderButton);
-			orderButton.setText(Variable.getBartenderOrder());
-			if(button.getId() == R.id.coffeeButton){
-				FragmentManager fManager = getFragmentManager();
-				FragmentTransaction fTransaction = fManager.beginTransaction();
-				Fragment_CoffeeSorts coffeeSorts = new Fragment_CoffeeSorts();
-				fTransaction.replace(R.id.homepage_fragment, coffeeSorts);
-				fTransaction.addToBackStack(null);
-				fTransaction.commit();
-			}else {
-				FragmentManager fManager = getFragmentManager();
-				FragmentTransaction fTransaction = fManager.beginTransaction();
-				Fragment_SeatPage seatPage = new Fragment_SeatPage();
-				fTransaction.replace(R.id.homepage_fragment, seatPage);
-				fTransaction.addToBackStack(null);
-				fTransaction.commit();
-			}
-			
-		}
-		
-	}
-	
 }

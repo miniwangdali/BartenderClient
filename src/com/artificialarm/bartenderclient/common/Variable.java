@@ -3,6 +3,7 @@ package com.artificialarm.bartenderclient.common;
 public class Variable {
 
 	private static String bartenderOrder,tasteOrder,seatOrder;
+	private static String[] taste = {"Coffee", "Tea", "Hot Water"};
 
 	public static String getBartenderOrder() {
 		return bartenderOrder;
@@ -26,6 +27,14 @@ public class Variable {
 
 	public static void setSeatOrder(String seatOrder) {
 		Variable.seatOrder = seatOrder;
+	}
+
+	public static String[] getTaste() {
+		return taste;
+	}
+
+	public static void setTaste(String[] taste) {
+		Variable.taste = taste;
 	}
 
 

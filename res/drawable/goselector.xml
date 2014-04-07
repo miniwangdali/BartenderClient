@@ -5,8 +5,8 @@
         <shape>  
             <!-- 渐变 -->  
             <gradient  
-                android:startColor="#ffffee"  
-                android:endColor="#ffffff"  
+                android:startColor="#59e760"
+                android:endColor="#3fcd3c"  
                 android:type="linear"
                 android:angle="90"  />  
             <!-- 描边 -->  
@@ -23,8 +23,8 @@
     <item android:state_focused="true" >  
         <shape>  
             <gradient  
-                android:startColor="#ffffee"  
-                android:endColor="#ffffff"  
+               	android:startColor="#59e760"
+                android:endColor="#3fcd3c"  
                 android:angle="90" />  
             <stroke  
                 android:width="3dp"  
@@ -35,7 +35,10 @@
     </item>  
     <item>        
         <shape>  
-            <solid android:color="@android:color/holo_green_dark"/>  
+            <gradient 
+                android:startColor="#59e760"
+                android:endColor="#3fcd3c"
+                android:angle="270" />  
             <stroke  
                 android:width="3dp"  
                 android:color="#fad3cf" />  

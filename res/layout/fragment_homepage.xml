@@ -3,22 +3,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#f1f0f0" >
+    android:background="#f7f0e8" >
     <ImageButton 
         android:id="@+id/myfavorBtn"
         android:scaleType="fitCenter"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="6"
-        android:src="@drawable/myfavor"
+        android:src="@drawable/myfavorselector"
         android:background="@android:color/transparent"/>
-    <ImageButton
+    <!-- <ImageButton
         android:id="@+id/customBtn"
         android:scaleType="fitEnd"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
         android:src="@drawable/custom"
-        android:background="@android:color/transparent" />
+        android:background="@android:color/transparent" /> -->
+    <Button 
+        android:id="@+id/customBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Customize"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/normalbutton" />
 
 </LinearLayout>

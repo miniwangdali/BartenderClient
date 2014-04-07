@@ -20,6 +20,7 @@ import android.widget.Toast;
 public class Fragment_HomePage extends Fragment {
 
 	ImageButton myfavor, custom;
+	Button customButton;
 	Fragment_Orderlist orderlist;
 	
 	@Override
@@ -27,7 +28,7 @@ public class Fragment_HomePage extends Fragment {
 		View view = inflater.inflate(R.layout.fragment_homepage, container, false);
 		
 		myfavor = (ImageButton)view.findViewById(R.id.myfavorBtn);
-		myfavor.setOnTouchListener(new OnTouchListener() {
+		/*myfavor.setOnTouchListener(new OnTouchListener() {
 			
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
@@ -42,7 +43,7 @@ public class Fragment_HomePage extends Fragment {
 				
 				return false;
 			}
-		});
+		});*/
 		myfavor.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -53,7 +54,7 @@ public class Fragment_HomePage extends Fragment {
 			}
 		});
 		
-		custom = (ImageButton)view.findViewById(R.id.customBtn);
+		/*custom = (ImageButton)view.findViewById(R.id.customBtn);
 		custom.setOnTouchListener(new OnTouchListener() {
 			
 			@Override
@@ -82,8 +83,24 @@ public class Fragment_HomePage extends Fragment {
 				ft.commit();
 				
 			}
-		});
+		});*/
 		
+		customButton = (Button)view.findViewById(R.id.customBtn);
+		
+		customButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				FragmentManager fm = getFragmentManager();
+				FragmentTransaction ft = fm.beginTransaction();
+				Fragment_CustomPage fragment_CustomPage = new Fragment_CustomPage();
+				ft.replace(R.id.homepage_fragment, fragment_CustomPage);
+				ft.addToBackStack(null);
+				ft.commit();
+				
+			}
+		});
 		
 		return view;
 	}

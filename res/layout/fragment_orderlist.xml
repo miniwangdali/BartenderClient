@@ -11,7 +11,8 @@
         android:layout_weight="0.4"
         android:layout_margin="5dp"
         android:background="@drawable/buttonselector"
-        android:text="beverage" />
+        android:text="beverage"
+        android:textColor="#ffffff" />
     
     <Button android:id="@+id/seatOrderButton"
         android:layout_height="match_parent"
@@ -19,7 +20,8 @@
         android:layout_weight="0.4"
         android:layout_margin="5dp"
         android:background="@drawable/buttonselector"
-        android:text="seat" />
+        android:text="seat"
+        android:textColor="#ffffff" />
     
     <Button android:id="@+id/goOrderButton"
         android:layout_height="match_parent"
@@ -27,6 +29,7 @@
         android:layout_weight="0.2"
         android:background="@drawable/goselector"
         android:layout_margin="5dp"
-        android:text="GO!" />
+        android:text="GO!"
+        android:textColor="#ffffff" />
 
 </LinearLayout>

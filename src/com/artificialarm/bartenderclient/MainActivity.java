@@ -17,7 +17,6 @@ public class MainActivity extends Activity {
 		
 		FragmentManager fManager = getFragmentManager();
 		FragmentTransaction fTransaction = fManager.beginTransaction();
-		fTransaction.add(R.id.orderlist_fragment, new Fragment_Orderlist());
 		fTransaction.add(R.id.homepage_fragment, new Fragment_HomePage());
 		fTransaction.commit();
 		

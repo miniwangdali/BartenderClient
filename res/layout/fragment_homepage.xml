@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#f7f0e8" >
+    android:background="@drawable/background" >
     <ImageButton 
         android:id="@+id/myfavorBtn"
         android:scaleType="fitCenter"

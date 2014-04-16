@@ -1,72 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
+    android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="#f7f0e8" >
-    <TextView 
+    android:background="@drawable/shelf2">
+<ScrollView 
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:background="@android:color/transparent" >
+	<LinearLayout 
+    	android:id="@+id/seatLayout"
+    	android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:orientation="vertical" >
+        <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:background="@drawable/zqlayoutshape"
-        android:text="choose your position~"
-        android:layout_margin="5dp"
-        android:padding="3dp"
-        android:textSize="20sp"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.45"
-        android:orientation="horizontal">
-        
-        <Button android:id="@+id/driverSeatButton"
-        android:layout_height="match_parent"
-        android:layout_width="0dp"
-        android:layout_weight="0.5"
-		android:background="@drawable/chooseselector"
-        android:text="Driver" />
-        
-        <Button android:id="@+id/codriverSeatButton"
-        android:layout_height="match_parent"
-        android:layout_width="0dp"
-        android:layout_weight="0.5"
-		android:background="@drawable/chooseselector"
-        android:text="Co-Driver" />
-        
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.45"
-        android:orientation="horizontal">
-        
-        <Button android:id="@+id/rearLeftButton"
-        android:layout_height="match_parent"
-        android:layout_width="0dp"
-        android:layout_weight="0.4"
-		android:background="@drawable/chooseselector"
-        android:text="RearLeft" />
-        
-        <Button android:id="@+id/rearMidButton"
-        android:layout_height="match_parent"
-        android:layout_width="0dp"
-        android:layout_weight="0.2"
-		android:background="@drawable/chooseselector"
-        android:text="Mid" />
-        
-        <Button android:id="@+id/rearRightButton"
-        android:layout_height="match_parent"
-        android:layout_width="0dp"
-        android:layout_weight="0.4"
-		android:background="@drawable/chooseselector"
-        android:text="RearRight" />
-        
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.1">
-        
-    </LinearLayout>
+        android:layout_height="200dp"
+        android:paddingTop="25dp"
+        android:paddingBottom="15dp"
+        android:text="Choose your seat~"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:textSize="30sp" />
+        <LinearLayout
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp" 
+            android:paddingTop="20dp"
+            android:paddingBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/seat"
+            android:orientation="vertical" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <Button 
+                    android:id="@+id/driverBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+                <Button 
+                    android:id="@+id/codriverBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <Button 
+                    android:id="@+id/rearleftBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+                <Button 
+                    android:id="@+id/rearrightBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+        </LinearLayout>
+    
 
+	</LinearLayout>
+</ScrollView>
 </LinearLayout>

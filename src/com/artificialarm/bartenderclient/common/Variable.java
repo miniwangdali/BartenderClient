@@ -2,16 +2,8 @@ package com.artificialarm.bartenderclient.common;
 
 public class Variable {
 
-	private static String bartenderOrder,tasteOrder,seatOrder;
-	private static String[] taste = {"Coffee", "Tea", "Hot Water"};
-
-	public static String getBartenderOrder() {
-		return bartenderOrder;
-	}
-
-	public static void setBartenderOrder(String bartenderOrder) {
-		Variable.bartenderOrder = bartenderOrder;
-	}
+	private static String tasteOrder = "None", seatOrder = "None";
+	private static String[] taste = {"Capriccio", "Vivalto Lungo", "Vrosabaya de Colombia", "Livanto"};
 
 	public static String getTasteOrder() {
 		return tasteOrder;

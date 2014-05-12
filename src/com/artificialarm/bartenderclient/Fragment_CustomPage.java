@@ -11,11 +11,15 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewTreeObserver;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
@@ -32,8 +36,10 @@ public class Fragment_CustomPage extends Fragment {
 	private String[] taste;
 	WindowManager windowManager;
 	TextView tasteTxt;
-	
-	
+	private int itemHeight;
+	private int lastY;
+	ListLayout listLayout = null;
+	ScrollView scrollView;
 /*	
 	public Fragment_CustomPage(){
 		
@@ -47,9 +53,9 @@ public class Fragment_CustomPage extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		View view = inflater.inflate(R.layout.fragment_custompage, container, false);
 		
-		ScrollView scrollView = (ScrollView)view.findViewById(R.id.scrollView);
+		scrollView = (ScrollView)view.findViewById(R.id.scrollView);
 		LinearLayout listlinearLayout = (LinearLayout)view.findViewById(R.id.listlinearLayout);
-		ListLayout listLayout = null;
+		
 		
 		// aktualisiert immer die Tastes durch sharedPreferences
 		String array[] ={"a","b","c"};
@@ -73,7 +79,7 @@ public class Fragment_CustomPage extends Fragment {
 		array2[1] = sp3.getString("NAME_CATEGORY1", "not set");
 		array2[2] = sp3.getString("NAME_CATEGORY2", "not set");
 		
-		// wenn die Kategorien noch nicht geändert worden sind, dann wird nichts gemacht, wenn schon dann setzt er sie aktuell
+		// wenn die Kategorien noch nicht geï¿½ndert worden sind, dann wird nichts gemacht, wenn schon dann setzt er sie aktuell
 		if(!array2[0].equals("not set")){		
 			Variable.setCategory(array2);
 		}else{
@@ -83,7 +89,7 @@ public class Fragment_CustomPage extends Fragment {
 		
 		
 
-		//fügt die Getränke, die in taste stehen in das ListLayout ein
+		//fï¿½gt die Getrï¿½nke, die in taste stehen in das ListLayout ein
 		
 		for(int i = taste.length; i > 0; i--){
 			listLayout = new ListLayout(getActivity());
@@ -91,7 +97,21 @@ public class Fragment_CustomPage extends Fragment {
 			listlinearLayout.addView(listLayout,0);
 		}
 		
-		// gibt an, was beim Berühren passiert
+		// gibt an, was beim Berï¿½hren passiert
+		
+		final ViewTreeObserver observer = scrollView.getViewTreeObserver();
+		observer.addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+			
+			@Override
+			public void onGlobalLayout() {
+				// TODO Auto-generated method stub
+				
+				itemHeight = 360;
+				if(scrollView.getViewTreeObserver().isAlive()){
+					scrollView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+				}
+			}
+		});
 		
 		scrollView.setOnTouchListener(new OnTouchListener() {
 			
@@ -107,17 +127,24 @@ public class Fragment_CustomPage extends Fragment {
 					tempLayout.getChildAt(i).getLocationOnScreen(location);
 					//int height = windowManager.getDefaultDisplay().getHeight();
 					
-					// schreibt  das Getränk in TasteOrder
+					// schreibt  das Getrï¿½nk in TasteOrder
 					if(location[1] > 384 && location[1] < 768){
 						Variable.setTasteOrder(taste[i]);
 						Variable.setCategoryOrder(Variable.getCategory()[i]);
 					}
 				}
+				
+				if(event.getAction() == MotionEvent.ACTION_UP){
+					final ScrollView sv = (ScrollView)v;
+					lastY = sv.getScrollY();
+					handler.sendMessageDelayed(handler.obtainMessage(0, v), 0);
+				}
+				
 				return false;
 			}
 		});
 
-		// öffnet das nächste Layout und bestätigt das Getränk
+		// ï¿½ffnet das nï¿½chste Layout und bestï¿½tigt das Getrï¿½nk
 		
 		ImageButton nextButton = (ImageButton)view.findViewById(R.id.nextBtn);
 		nextButton.setOnClickListener(new OnClickListener() {
@@ -139,10 +166,10 @@ public class Fragment_CustomPage extends Fragment {
 				else{
 				// Anweisung, falls es nicht Kaffee ist
 					
-				// setzt die Größe des Getränks auf normal
+				// setzt die Grï¿½ï¿½e des Getrï¿½nks auf normal
 				Variable.setSizeOrder("normal");
 						
-				//öffnet neues Layout SeatPage und gibt den TasteOrder in einem Toast aus
+				//ï¿½ffnet neues Layout SeatPage und gibt den TasteOrder in einem Toast aus
 				Toast.makeText(getActivity(), Variable.getTasteOrder(), Toast.LENGTH_LONG).show();
 				
 				FragmentManager fManager = getActivity().getFragmentManager();
@@ -164,9 +191,9 @@ public class Fragment_CustomPage extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
-				// Anweisung, was beim Drücken des refill-Buttons geschehen soll
+				// Anweisung, was beim Drï¿½cken des refill-Buttons geschehen soll
 				// Anweisung, falls die Maschine gereinigt werden soll
-				// öffnet wieder einen Dialog
+				// ï¿½ffnet wieder einen Dialog
 				
 				new ConfirmDialog(getActivity());
 				ConfirmDialog confirmDialog = ConfirmDialog.createDialog(getActivity());
@@ -196,4 +223,20 @@ public class Fragment_CustomPage extends Fragment {
 		
 		return view;
 	}
+	private Handler handler = new Handler(){
+		public void handleMessage(Message msg){
+			ScrollView sv = (ScrollView)msg.obj;
+			if(msg.what == 0){
+				if(lastY == sv.getScrollY()){
+					int num = lastY / itemHeight;
+					int over = lastY % itemHeight;
+					if(over > itemHeight / 2){
+						sv.smoothScrollTo(0, ( num+ 1 ) * itemHeight);
+					}else{
+						sv.smoothScrollTo(0, num * itemHeight);
+					}
+				}
+			}
+		}
+	};
 }

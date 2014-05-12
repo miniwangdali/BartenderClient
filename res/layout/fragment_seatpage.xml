@@ -16,15 +16,17 @@
     	android:layout_width="match_parent"
     	android:layout_height="match_parent"
     	android:orientation="vertical" >
+
         <TextView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:paddingTop="25dp"
-        android:paddingBottom="15dp"
-        android:text="Choose your seat~"
-        android:textColor="#ffffff"
-        android:gravity="center"
-        android:textSize="30sp" />
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:gravity="center"
+            android:paddingBottom="15dp"
+            android:paddingTop="25dp"
+            android:text="Choose your seat~"
+            android:textColor="#ffffff"
+            android:textSize="30sp" />
+
         <LinearLayout
             android:paddingLeft="25dp"
             android:paddingRight="25dp" 

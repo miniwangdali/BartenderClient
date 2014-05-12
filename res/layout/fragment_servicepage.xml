@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background" >
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Write down your different tastes and confirm all!"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="left slide"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
+ <LinearLayout
+     	android:layout_width="match_parent"   
+    	android:layout_height="wrap_content"
+    	android:paddingTop="5dp"
+    	android:paddingBottom="5dp"
+    	android:paddingLeft="10dp"
+    	android:paddingRight="10dp"
+    	android:gravity="center_vertical"
+        android:orientation="horizontal" >
+            
+    <EditText
+        android:id="@+id/leftET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:ems="10"
+        android:hint="write down the flavor"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:background="@drawable/textofslide" >
+
+        <!--<requestFocus />-->
+    </EditText>
+
+    <Spinner
+        android:id="@+id/spinnerleft"
+        android:layout_width="match_parent"
+        android:layout_height="33dp" />
+
+ </LinearLayout>   
+    
+    
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="central slide"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
+ <LinearLayout
+     	android:layout_width="match_parent"   
+    	android:layout_height="wrap_content"
+    	android:paddingTop="5dp"
+    	android:paddingBottom="5dp"
+    	android:paddingLeft="10dp"
+    	android:paddingRight="10dp"
+    	android:gravity="center_vertical"
+        android:orientation="horizontal" >   
+    
+    <EditText
+        android:id="@+id/centralET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:ems="10"
+        android:hint="write down the flavor"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:background="@drawable/textofslide" />
+
+    <Spinner
+        android:id="@+id/spinnercentral"
+        android:layout_width="match_parent"
+        android:layout_height="33dp" />
+
+ </LinearLayout>   
+    
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="right slide"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
+ <LinearLayout
+     	android:layout_width="match_parent"   
+    	android:layout_height="wrap_content"
+    	android:paddingTop="5dp"
+    	android:paddingBottom="5dp"
+    	android:paddingLeft="10dp"
+    	android:paddingRight="10dp"
+    	android:gravity="center_vertical"
+        android:orientation="horizontal" >    
+    
+    <EditText
+        android:id="@+id/rightET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:ems="10"
+        android:hint="write down the flavor"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:background="@drawable/textofslide" />
+
+    <Spinner
+        android:id="@+id/spinnerright"
+        android:layout_width="match_parent"
+        android:layout_height="32dp" />
+
+</LinearLayout>     
+    
+    <Button
+        android:id="@+id/attestBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/normalbutton"
+        android:text="confirm new tastes"
+        android:textColor="#ffffff"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/cleanBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/normalbutton"
+        android:text="clean machine"
+        android:textColor="#ffffff"
+        android:textSize="24sp" />
+    
+    
+     <LinearLayout
+     	android:layout_width="match_parent"   
+    	android:layout_height="wrap_content"
+    	android:paddingTop="5dp"
+    	android:paddingBottom="5dp"
+    	android:paddingLeft="10dp"
+    	android:paddingRight="10dp"
+    	android:gravity="center_vertical"
+        android:orientation="horizontal" > 
+    
+        <Button
+            android:id="@+id/stopBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/normalbutton"
+            android:text="stop"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+
+        <Button
+        android:id="@+id/continueBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/normalbutton"
+        android:text="continue"
+        android:textColor="#ffffff"
+        android:textSize="24sp" />
+        
+   </LinearLayout>     
+        
+        
+        
+</LinearLayout>

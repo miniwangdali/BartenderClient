@@ -37,9 +37,11 @@
             
     <EditText
         android:id="@+id/leftET"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="2"
         android:padding="5dp"
+        android:layout_marginRight="5dp"
         android:ems="10"
         android:hint="write down the flavor"
         android:textSize="20sp"
@@ -51,8 +53,11 @@
 
     <Spinner
         android:id="@+id/spinnerleft"
-        android:layout_width="match_parent"
-        android:layout_height="33dp" />
+        android:layout_marginLeft="5dp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="33dp"
+        android:background="@drawable/spinnerselector" />
 
  </LinearLayout>   
     
@@ -79,8 +84,10 @@
     
     <EditText
         android:id="@+id/centralET"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:layout_marginRight="5dp"
         android:padding="5dp"
         android:ems="10"
         android:hint="write down the flavor"
@@ -90,8 +97,11 @@
 
     <Spinner
         android:id="@+id/spinnercentral"
-        android:layout_width="match_parent"
-        android:layout_height="33dp" />
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="33dp"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/spinnerselector" />
 
  </LinearLayout>   
     
@@ -117,8 +127,10 @@
     
     <EditText
         android:id="@+id/rightET"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:layout_marginRight="5dp"
         android:padding="5dp"
         android:ems="10"
         android:hint="write down the flavor"
@@ -128,8 +140,11 @@
 
     <Spinner
         android:id="@+id/spinnerright"
-        android:layout_width="match_parent"
-        android:layout_height="32dp" />
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="33dp"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/spinnerselector" />
 
 </LinearLayout>     
     

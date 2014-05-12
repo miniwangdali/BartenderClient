@@ -1,5 +1,8 @@
 package com.artificialarm.bartenderclient;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.artificialarm.bartenderclient.ui.ConfirmDialog;
 import com.artificialarm.bartenderclient.ui.ListLayout;
 import com.example.bartenderclient.R;
@@ -40,6 +43,7 @@ public class Fragment_CustomPage extends Fragment {
 	private int lastY;
 	ListLayout listLayout = null;
 	ScrollView scrollView;
+	List<ListLayout> listgroup = new ArrayList<ListLayout>();
 /*	
 	public Fragment_CustomPage(){
 		
@@ -95,6 +99,7 @@ public class Fragment_CustomPage extends Fragment {
 			listLayout = new ListLayout(getActivity());
 			listLayout.setTaste(taste[i - 1]);	
 			listlinearLayout.addView(listLayout,0);
+			listgroup.add(0, listLayout);
 		}
 		
 		// gibt an, was beim Ber�hren passiert
@@ -121,7 +126,7 @@ public class Fragment_CustomPage extends Fragment {
 			public boolean onTouch(View v, MotionEvent event) {
 				// TODO Auto-generated method stub
 				LinearLayout tempLayout = (LinearLayout)v.findViewById(R.id.listlinearLayout);
-				
+				final ScrollView sv = (ScrollView)v;
 				for(int i = 0; i < tempLayout.getChildCount() - 1; i++){
 					int[] location = new int[2];
 					tempLayout.getChildAt(i).getLocationOnScreen(location);
@@ -132,12 +137,13 @@ public class Fragment_CustomPage extends Fragment {
 						Variable.setTasteOrder(taste[i]);
 						Variable.setCategoryOrder(Variable.getCategory()[i]);
 					}
+					
 				}
 				
 				if(event.getAction() == MotionEvent.ACTION_UP){
-					final ScrollView sv = (ScrollView)v;
+					
 					lastY = sv.getScrollY();
-					handler.sendMessageDelayed(handler.obtainMessage(0, v), 0);
+					handler.sendMessageDelayed(handler.obtainMessage(0, v), 50);
 				}
 				
 				return false;
@@ -230,11 +236,16 @@ public class Fragment_CustomPage extends Fragment {
 				if(lastY == sv.getScrollY()){
 					int num = lastY / itemHeight;
 					int over = lastY % itemHeight;
+					/*TextView text = (TextView)listgroup.get(1).findViewById(R.id.tasteTxt);
+					text.setTextColor(getResources().getColor(R.drawable.lightyellow));*/
 					if(over > itemHeight / 2){
 						sv.smoothScrollTo(0, ( num+ 1 ) * itemHeight);
 					}else{
 						sv.smoothScrollTo(0, num * itemHeight);
 					}
+				}else{
+					lastY = sv.getScrollY();
+					handler.sendMessageDelayed(handler.obtainMessage(0, sv), 50);
 				}
 			}
 		}

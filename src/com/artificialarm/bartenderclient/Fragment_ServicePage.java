@@ -5,6 +5,7 @@ import java.util.List;
 import com.artificialarm.bartenderclient.ui.ConfirmDialog;
 import com.example.bartenderclient.R;
 import Database.Variable;
+import android.R.integer;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -22,6 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class Fragment_ServicePage extends Fragment{
 
@@ -29,6 +31,7 @@ public class Fragment_ServicePage extends Fragment{
 	Button confirmTastes, clean;
 	EditText leftSlide, centralSlide, rightSlide;
 	Spinner  spleft, spcentral, spright;
+	List<String> state;
 	
 	// shared preferences
 	
@@ -48,23 +51,32 @@ public class Fragment_ServicePage extends Fragment{
 		spright = (Spinner)view.findViewById(R.id.spinnerright);
 		
 		// schreib die Werte von den verschidenen Kategorien in den spinner
-		List<String> state = new ArrayList<String>();
+		state = new ArrayList<String>();
 		state.add("Coffee");
 		state.add("Tea");
 		state.add("Juice");
 		
-		ArrayAdapter<String> adapterspinner = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_dropdown_item,state);
-		//ArrayAdapter<String> adapterspinner = ArrayAdapter.createFromResource(getActivity(),
-		//        R., R.layout.spinner_item);
-		adapterspinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		//adapterspinner.setDropDownViewResource(R.layout.spinner_dropdown_item);
+		/*ArrayAdapter<String> adapterspinner = new ArrayAdapter<String>(getActivity(), R.layout.spinnerchecked, state){
+			@Override
+			public View getDropDownView(int position, View convertView, ViewGroup parent){
+				LayoutInflater inflater = LayoutInflater.from(getActivity());
+				View view = inflater.inflate(R.layout.spinneritem, null);
+				TextView text = (TextView)view.findViewById(R.id.tasteTxt);
+				text.setText(state.get(position));
+				return view;
+			}
+		};
 		
+		adapterspinner.setDropDownViewResource(R.layout.spinneritem);*/
+		
+
+		SpinnerAdapter adapterspinner = new SpinnerAdapter(getActivity(), state);
 		spleft.setAdapter(adapterspinner);
 		spcentral.setAdapter(adapterspinner);
 		spright.setAdapter(adapterspinner);
 
 		
-		// Anweisung wenn confirmButton gedrückt wird
+		// Anweisung wenn confirmButton gedrï¿½ckt wird
 		
 		Button confirmButton = (Button)view.findViewById(R.id.attestBtn);
 		confirmButton.setOnClickListener(new OnClickListener() {
@@ -80,7 +92,7 @@ public class Fragment_ServicePage extends Fragment{
 				String tastecentral = centralSlide.getText().toString();
 				String tasteright = rightSlide.getText().toString();
 				
-				// schreibt die drei Geschmäcker in Variable.Taste
+				// schreibt die drei Geschmï¿½cker in Variable.Taste
 				
 				String[] taste = { tasteleft , tastecentral , tasteright}; 
 				
@@ -116,7 +128,7 @@ public class Fragment_ServicePage extends Fragment{
 				Variable.setCategory(category);
 
 				
-				// man kommt zurück zur CustomPage
+				// man kommt zurï¿½ck zur CustomPage
 				
 				FragmentManager fm = getFragmentManager();
 				FragmentTransaction ft = fm.beginTransaction();
@@ -134,9 +146,9 @@ public class Fragment_ServicePage extends Fragment{
 			@Override
 			public void onClick(View v) {
 				
-				// Anweisung, was beim Drücken des clean-Buttons geschehen soll
+				// Anweisung, was beim Drï¿½cken des clean-Buttons geschehen soll
 				// Anweisung, falls die Maschine gereinigt werden soll
-				// öffnet wieder einen Dialog
+				// ï¿½ffnet wieder einen Dialog
 
 				new ConfirmDialog(getActivity());
 				ConfirmDialog confirmDialog = ConfirmDialog.createDialog(getActivity());
@@ -149,16 +161,16 @@ public class Fragment_ServicePage extends Fragment{
 		});
 
 	
-// Stop function für die tests	
+// Stop function fï¿½r die tests	
 		Button stopButton = (Button)view.findViewById(R.id.stopBtn);
 		stopButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				
-				// Anweisung, was beim Drücken des clean-Buttons geschehen soll
+				// Anweisung, was beim Drï¿½cken des clean-Buttons geschehen soll
 				// Anweisung, falls die Maschine gereinigt werden soll
-				// öffnet wieder einen Dialog
+				// ï¿½ffnet wieder einen Dialog
 
 				new ConfirmDialog(getActivity());
 				ConfirmDialog confirmDialog = ConfirmDialog.createDialog(getActivity());
@@ -176,9 +188,9 @@ public class Fragment_ServicePage extends Fragment{
 			@Override
 			public void onClick(View v) {
 				
-				// Anweisung, was beim Drücken des clean-Buttons geschehen soll
+				// Anweisung, was beim Drï¿½cken des clean-Buttons geschehen soll
 				// Anweisung, falls die Maschine gereinigt werden soll
-				// öffnet wieder einen Dialog
+				// ï¿½ffnet wieder einen Dialog
 
 				new ConfirmDialog(getActivity());
 				ConfirmDialog confirmDialog = ConfirmDialog.createDialog(getActivity());

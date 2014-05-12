@@ -27,12 +27,10 @@ public class Fragment_SeatPage extends Fragment{
 		
 		driverButton = (Button)v.findViewById(R.id.driverBtn);
 		driverButton.setOnClickListener(new ButtonOnClickListener(driverButton));
-		codriverButton = (Button)v.findViewById(R.id.codriverBtn);
-		codriverButton.setOnClickListener(new ButtonOnClickListener(codriverButton));
+
 		rearleftButton = (Button)v.findViewById(R.id.rearleftBtn);
 		rearleftButton.setOnClickListener(new ButtonOnClickListener(rearleftButton));
-		rearrightButton = (Button)v.findViewById(R.id.rearrightBtn);
-		rearrightButton.setOnClickListener(new ButtonOnClickListener(rearrightButton));
+
 		
 		return v;
 	}
@@ -48,26 +46,22 @@ public class Fragment_SeatPage extends Fragment{
 		@Override
 		public void onClick(View v) {
 			
-			// Schreibt je nach gedrückten Button den gewählten Sitz in SeatOrder.
+			// Schreibt je nach gedrï¿½ckten Button den gewï¿½hlten Sitz in SeatOrder.
 			
 			switch(button.getId()){
 			case R.id.driverBtn:
 				Database.Variable.setSeatOrder("driver");
 				break;
-			case R.id.codriverBtn:
-				Database.Variable.setSeatOrder("codriver");
-				break;
+
 			case R.id.rearleftBtn:
 				Database.Variable.setSeatOrder("rearleft");
 				break;
-			case R.id.rearrightBtn:
-				Database.Variable.setSeatOrder("rearright");
-				break;
+
 			default:
 				break;	
 			}
 			
-			//öffnet einen Dialog, bei dem die Bestellung noch betätigt werden muss. 
+			//ï¿½ffnet einen Dialog, bei dem die Bestellung noch betï¿½tigt werden muss. 
 			
 			new ConfirmDialog(getActivity());
 			ConfirmDialog confirmDialog = ConfirmDialog.createDialog(getActivity());

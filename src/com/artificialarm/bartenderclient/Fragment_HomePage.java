@@ -552,7 +552,7 @@ public class Fragment_HomePage extends Fragment {
         			startVoiceRecognition();
         		}
         		else if(results.get(0).equals("back") || results.get(1).equals("back") || results.get(2).equals("back") || results.get(3).equals("back")){
-        			Variable.setSeatOrder("rearLeft");
+        			Variable.setSeatOrder("rearleft");
         			REQUESTCODE = 1237;
         			speakOut("Please confirm your order!");
         			try {

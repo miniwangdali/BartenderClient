@@ -1,5 +1,6 @@
 package com.artificialarm.bartenderclient;
 
+import com.artificialarm.bartenderclient.ui.ListLayout;
 import com.example.bartenderclient.R;
 import Database.Variable;
 import android.app.Fragment;
@@ -11,14 +12,19 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 public class Fragment_SizePage extends Fragment{
 
-	
+	LinearLayout linearLayout;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		View view = inflater.inflate(R.layout.fragment_sizepage, container, false);
+		LinearLayout linearLayout = (LinearLayout)view.findViewById(R.id.sizepage);
+		ListLayout finalLayout = new ListLayout(getActivity());
+		finalLayout.setTaste(Database.Variable.getTasteOrder());
+		linearLayout.addView(finalLayout, 1);
 		
 		Button normalbtn = (Button)view.findViewById(R.id.normalBtn);
 		normalbtn.setOnClickListener(new OnClickListener() {
@@ -26,11 +32,11 @@ public class Fragment_SizePage extends Fragment{
 			@Override
 			public void onClick(View v) {
 				
-				// schreibt die Größe in SizeOrder
+				// schreibt die Grï¿½ï¿½e in SizeOrder
 				Variable.setSizeOrder("normal");
 				
 				
-				// öffnet die neue Fragment fragment_SeatPage
+				// ï¿½ffnet die neue Fragment fragment_SeatPage
 				FragmentManager fragmentManager = getActivity().getFragmentManager();
 				FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 				Fragment_SeatPage fragment_SeatPage = new Fragment_SeatPage();
@@ -47,11 +53,11 @@ public class Fragment_SizePage extends Fragment{
 			@Override
 			public void onClick(View v) {
 				
-				// schreibt die Größe in SizeOrder
+				// schreibt die Grï¿½ï¿½e in SizeOrder
 				Variable.setSizeOrder("small");
 				
 				
-				// öffnet die neue Fragment fragment_SeatPage
+				// ï¿½ffnet die neue Fragment fragment_SeatPage
 				FragmentManager fragmentManager = getActivity().getFragmentManager();
 				FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 				Fragment_SeatPage fragment_SeatPage = new Fragment_SeatPage();
@@ -69,11 +75,11 @@ public class Fragment_SizePage extends Fragment{
 			@Override
 			public void onClick(View v) {
 				
-				// schreibt die Größe in SizeOrder
+				// schreibt die Grï¿½ï¿½e in SizeOrder
 				Variable.setSizeOrder("ristretto");
 				
 				
-				// öffnet die neue Fragment fragment_SeatPage
+				// ï¿½ffnet die neue Fragment fragment_SeatPage
 				FragmentManager fragmentManager = getActivity().getFragmentManager();
 				FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 				Fragment_SeatPage fragment_SeatPage = new Fragment_SeatPage();

@@ -13,6 +13,7 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -71,9 +72,12 @@ public class Fragment_CustomPage extends Fragment {
 		if(!array[0].equals("not set")){		
 			taste = array;
 		}else{
-		taste = Variable.getTaste();
+			taste = Variable.getTaste();
 		}
 
+		Variable.setTasteOrder(taste[0]);
+		Variable.setCategoryOrder(Variable.getCategory()[0]);
+		
 /*	ist in Fragment_Homepage verschoben worden, wegen Sprachsteuerung
  		
 		//aktualisiert immer die Kategorien
@@ -102,6 +106,9 @@ public class Fragment_CustomPage extends Fragment {
 			listgroup.add(0, listLayout);
 		}
 		
+		
+		
+		
 		// gibt an, was beim Ber�hren passiert
 		
 		final ViewTreeObserver observer = scrollView.getViewTreeObserver();
@@ -114,6 +121,14 @@ public class Fragment_CustomPage extends Fragment {
 				itemHeight = 360;
 				if(scrollView.getViewTreeObserver().isAlive()){
 					scrollView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+				}
+				
+				for(int i = 0; i < listgroup.size(); i ++){
+					int[] location = new int[2];
+					listgroup.get(i).getLocationOnScreen(location);
+					TextView textView = (TextView)listgroup.get(i).findViewById(R.id.tasteTxt);
+					textView.setTextSize((float)(32 - Math.abs(location[1] - 500) * 0.03));
+					textView.setPadding((int)(150 - Math.floor(Math.pow(2, ((Math.abs(location[1] - 500) < 220) ? (Math.abs(location[1] - 500) * 0.03) : 220 * 0.03)) - 1)), 0, 0, 0);
 				}
 			}
 		});
@@ -140,6 +155,14 @@ public class Fragment_CustomPage extends Fragment {
 					
 				}
 				
+				for(int i = 0; i < listgroup.size(); i ++){
+					int[] location = new int[2];
+					listgroup.get(i).getLocationOnScreen(location);
+					TextView textView = (TextView)listgroup.get(i).findViewById(R.id.tasteTxt);
+					textView.setTextSize((float)(32 - Math.abs(location[1] - 500) * 0.03));
+					textView.setPadding((int)(150 - Math.floor(Math.pow(2, ((Math.abs(location[1] - 500) < 220) ? (Math.abs(location[1] - 500) * 0.03) : 220 * 0.03)) - 1)), 0, 0, 0);
+				}
+				
 				if(event.getAction() == MotionEvent.ACTION_UP){
 					
 					lastY = sv.getScrollY();
@@ -149,6 +172,8 @@ public class Fragment_CustomPage extends Fragment {
 				return false;
 			}
 		});
+		
+
 
 		// �ffnet das n�chste Layout und best�tigt das Getr�nk
 		
@@ -236,12 +261,11 @@ public class Fragment_CustomPage extends Fragment {
 				if(lastY == sv.getScrollY()){
 					int num = lastY / itemHeight;
 					int over = lastY % itemHeight;
-					/*TextView text = (TextView)listgroup.get(1).findViewById(R.id.tasteTxt);
-					text.setTextColor(getResources().getColor(R.drawable.lightyellow));*/
 					if(over > itemHeight / 2){
 						sv.smoothScrollTo(0, ( num+ 1 ) * itemHeight);
 					}else{
 						sv.smoothScrollTo(0, num * itemHeight);
+						
 					}
 				}else{
 					lastY = sv.getScrollY();
@@ -250,4 +274,5 @@ public class Fragment_CustomPage extends Fragment {
 			}
 		}
 	};
+	
 }

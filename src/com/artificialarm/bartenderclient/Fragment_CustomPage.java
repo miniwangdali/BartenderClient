@@ -61,7 +61,8 @@ public class Fragment_CustomPage extends Fragment {
 		scrollView = (ScrollView)view.findViewById(R.id.scrollView);
 		LinearLayout listlinearLayout = (LinearLayout)view.findViewById(R.id.listlinearLayout);
 		
-		
+	
+	/*	
 		// aktualisiert immer die Tastes durch sharedPreferences
 		String array[] ={"a","b","c"};
 		// schreibt die aktualisierten Tastes in ein Array
@@ -75,6 +76,9 @@ public class Fragment_CustomPage extends Fragment {
 			taste = Variable.getTaste();
 		}
 
+	*/	
+		taste = Variable.getTaste();
+		
 		Variable.setTasteOrder(taste[0]);
 		Variable.setCategoryOrder(Variable.getCategory()[0]);
 		

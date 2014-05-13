@@ -9,17 +9,17 @@ public class SendData {
 		
 		String sendString;
 		
-		// Frägt ab, welches Getränk, welchen Sitz, und welche Größe gewählt wurde
+		// Frï¿½gt ab, welches Getrï¿½nk, welchen Sitz, und welche Grï¿½ï¿½e gewï¿½hlt wurde
 		
 		//Sitz
-			// Getränk
-				//Größe
+			// Getrï¿½nk
+				//Grï¿½ï¿½e
 				
 		
 		// vorne
 		if (Variable.getSeatOrder().equals("driver") || Variable.getSeatOrder().equals("codriver")){
 			//Variable.getTaste()[0]
-			if (Variable.getTasteOrder().equals(Variable.getTasteOrder())){
+			if (Variable.getTasteOrder().equals(Variable.getTaste()[0])){
 			
 				if (Variable.getSizeOrder().equals("normal")){
 	
@@ -36,7 +36,7 @@ public class SendData {
 				}
 			}
 			//Variable.getTaste()[1]
-			else if (Variable.getTasteOrder().equals(Variable.getTasteOrder())){	
+			else if (Variable.getTasteOrder().equals(Variable.getTaste()[1])){	
 				
 				if (Variable.getSizeOrder().equals("normal")){
 					
@@ -53,7 +53,7 @@ public class SendData {
 				}
 			}
 			//Variable.getTaste()[2]
-			else if (Variable.getTasteOrder().equals(Variable.getTasteOrder())){
+			else if (Variable.getTasteOrder().equals(Variable.getTaste()[2])){
 				
 				if (Variable.getSizeOrder().equals("normal")){
 					
@@ -87,7 +87,7 @@ public class SendData {
 		// hinten
 		else if (Variable.getSeatOrder().equals("rearleft") || Variable.getSeatOrder().equals("rearright")){
 			//Variable.getTaste()[0]
-			if (Variable.getTasteOrder().equals(Variable.getTasteOrder())){
+			if (Variable.getTasteOrder().equals(Variable.getTaste()[0])){
 			
 				if (Variable.getSizeOrder().equals("normal")){
 	
@@ -104,7 +104,7 @@ public class SendData {
 				}
 			}
 			//Variable.getTaste()[1]
-			else if (Variable.getTasteOrder().equals(Variable.getTasteOrder())){	
+			else if (Variable.getTasteOrder().equals(Variable.getTaste()[1])){	
 				
 				if (Variable.getSizeOrder().equals("normal")){
 					
@@ -121,7 +121,7 @@ public class SendData {
 				}
 			}
 			//Variable.getTaste()[2]
-			else if (Variable.getTasteOrder().equals(Variable.getTasteOrder())){
+			else if (Variable.getTasteOrder().equals(Variable.getTaste()[2])){
 				
 				if (Variable.getSizeOrder().equals("normal")){
 					

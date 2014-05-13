@@ -52,13 +52,24 @@ public class Fragment_HomePage extends Fragment {
 		array2[1] = sp3.getString("NAME_CATEGORY1", "not set");
 		array2[2] = sp3.getString("NAME_CATEGORY2", "not set");
 		
-		// wenn die Kategorien noch nicht geändert worden sind, dann wird nichts gemacht, wenn schon dann setzt er sie aktuell
+		// wenn die Kategorien noch nicht geï¿½ndert worden sind, dann wird nichts gemacht, wenn schon dann setzt er sie aktuell
 		if(!array2[0].equals("not set")){		
 			Variable.setCategory(array2);
 		}else{
 		}
 		
-		
+		// aktualisiert immer die Tastes durch sharedPreferences
+		String array[] ={"a","b","c"};
+		// schreibt die aktualisierten Tastes in ein Array
+		SharedPreferences sp2=PreferenceManager.getDefaultSharedPreferences(getActivity());
+		array[0] = sp2.getString("NAME_TASTE0", "not set");
+		array[1] = sp2.getString("NAME_TASTE1", "not set");
+		array[2] = sp2.getString("NAME_TASTE2", "not set");
+		if(!array[0].equals("not set")){		
+			Variable.setTaste(array);
+		}else{
+			
+		}
 		
 		
 		
@@ -72,13 +83,13 @@ public class Fragment_HomePage extends Fragment {
 				
 				Database.DatabaseOpenHelper db = new Database.DatabaseOpenHelper(getActivity());
 				
-				// schreibt die schon bestellten Getränke in eine List
+				// schreibt die schon bestellten Getrï¿½nke in eine List
 				List<Variable> list = db.getAllDrinks();
 				
-				//überprüfen ob in der Liste was steht
+				//ï¿½berprï¿½fen ob in der Liste was steht
 				
 				if (list.size()==0){
-					// wenn noch kein Getränk bestellt wurde
+					// wenn noch kein Getrï¿½nk bestellt wurde
 					
 					FragmentManager fm = getFragmentManager();
 					FragmentTransaction ft = fm.beginTransaction();
@@ -88,13 +99,13 @@ public class Fragment_HomePage extends Fragment {
 					ft.commit();	
 				}
 				else{
-					// wenn schon ein Getränk bestellt wurde	
+					// wenn schon ein Getrï¿½nk bestellt wurde	
 				Database.FavoriteDrink favDrink = new Database.FavoriteDrink();
 				
-				// das Getränk wird in Variable TasteOrder gespeichert
+				// das Getrï¿½nk wird in Variable TasteOrder gespeichert
 				Variable.setTasteOrder(favDrink.getDrinkCount(list));
 				
-				//Bestätigen des Favorite Drinks und der Sitzposition Fahrer 
+				//Bestï¿½tigen des Favorite Drinks und der Sitzposition Fahrer 
 				
 				new ConfirmDialog(getActivity());
 				ConfirmDialog confirmDialog = ConfirmDialog.createDialog(getActivity());
@@ -176,7 +187,7 @@ public class Fragment_HomePage extends Fragment {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				
-				// Gibt dir die Anweisung ein Getränk zu wählen
+				// Gibt dir die Anweisung ein Getrï¿½nk zu wï¿½hlen
     			speakOut("Please choose your drink!");
     			
     			try {
@@ -217,12 +228,12 @@ public class Fragment_HomePage extends Fragment {
 	
 	public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-		// Array um Getränk und Sitzposition zu senden
+		// Array um Getrï¿½nk und Sitzposition zu senden
 		String OrderString;
 		
 		
 		
-// Getränkeauswahl
+// Getrï¿½nkeauswahl
 		
         if (requestCode == 1234 && resultCode == getActivity().RESULT_OK)
         {
@@ -238,7 +249,7 @@ public class Fragment_HomePage extends Fragment {
     					Variable.setTasteOrder("coffee");
     	    			REQUESTCODE = 1235;
     	    			
-    					// Gibt dir die Anweisung die Größe zu wählen
+    					// Gibt dir die Anweisung die Grï¿½ï¿½e zu wï¿½hlen
     	    			speakOut("Please choose the size of your drink!");
     	    			
     	    			try {
@@ -254,7 +265,7 @@ public class Fragment_HomePage extends Fragment {
     					Variable.setTasteOrder("coffee");
     	    			REQUESTCODE = 1235;
     	    			
-    					// Gibt dir die Anweisung die Größe zu wählen
+    					// Gibt dir die Anweisung die Grï¿½ï¿½e zu wï¿½hlen
     	    			speakOut("Please choose the size of your drink!");
     	    			
     	    			try {
@@ -270,7 +281,7 @@ public class Fragment_HomePage extends Fragment {
     					Variable.setTasteOrder("coffee");
     	    			REQUESTCODE = 1235;
     	    			
-    					// Gibt dir die Anweisung die Größe zu wählen
+    					// Gibt dir die Anweisung die Grï¿½ï¿½e zu wï¿½hlen
     	    			speakOut("Please choose the size of your drink!");
     	    			
     	    			try {
@@ -314,13 +325,10 @@ public class Fragment_HomePage extends Fragment {
     			if(Variable.getCategory()[0].equals(OrderString)){
     					Variable.setTasteOrder("juice");
     					Variable.setSizeOrder("normal");
-    	    			REQUESTCODE = 1235;
-    	    			
-    					// Gibt dir die Anweisung die Größe zu wählen
-    	    			speakOut("Please choose the size of your drink!");
-    	    			
+    	    			REQUESTCODE = 1236;
+    	    			speakOut("Please choose your seat!");
     	    			try {
-    						Thread.sleep(2000);
+    						Thread.sleep(1200);
     					} catch (InterruptedException e) {
     						// TODO Auto-generated catch block
     						e.printStackTrace();
@@ -331,13 +339,10 @@ public class Fragment_HomePage extends Fragment {
     			else if(Variable.getCategory()[1].equals(OrderString)){
     					Variable.setTasteOrder("juice");
     					Variable.setSizeOrder("normal");
-    	    			REQUESTCODE = 1235;
-    	    			
-    					// Gibt dir die Anweisung die Größe zu wählen
-    	    			speakOut("Please choose the size of your drink!");
-    	    			
+    	    			REQUESTCODE = 1236;
+    	    			speakOut("Please choose your seat!");
     	    			try {
-    						Thread.sleep(2000);
+    						Thread.sleep(1200);
     					} catch (InterruptedException e) {
     						// TODO Auto-generated catch block
     						e.printStackTrace();
@@ -348,13 +353,10 @@ public class Fragment_HomePage extends Fragment {
     			else if(Variable.getCategory()[2].equals(OrderString)){
     					Variable.setTasteOrder("juice");
     					Variable.setSizeOrder("normal");
-    	    			REQUESTCODE = 1235;
-    	    			
-    					// Gibt dir die Anweisung die Größe zu wählen
-    	    			speakOut("Please choose the size of your drink!");
-    	    			
+    	    			REQUESTCODE = 1236;
+    	    			speakOut("Please choose your seat!");
     	    			try {
-    						Thread.sleep(2000);
+    						Thread.sleep(1200);
     					} catch (InterruptedException e) {
     						// TODO Auto-generated catch block
     						e.printStackTrace();
@@ -396,13 +398,10 @@ public class Fragment_HomePage extends Fragment {
     			if(Variable.getCategory()[0].equals(OrderString)){
     					Variable.setTasteOrder("tea");
     					Variable.setSizeOrder("normal");
-    	    			REQUESTCODE = 1235;
-    	    			
-    					// Gibt dir die Anweisung die Größe zu wählen
-    	    			speakOut("Please choose the size of your drink!");
-    	    			
+    	    			REQUESTCODE = 1236;
+    	    			speakOut("Please choose your seat!");
     	    			try {
-    						Thread.sleep(2000);
+    						Thread.sleep(1200);
     					} catch (InterruptedException e) {
     						// TODO Auto-generated catch block
     						e.printStackTrace();
@@ -413,13 +412,10 @@ public class Fragment_HomePage extends Fragment {
     			else if(Variable.getCategory()[1].equals(OrderString)){
     					Variable.setTasteOrder("tea");
     					Variable.setSizeOrder("normal");
-    	    			REQUESTCODE = 1235;
-    	    			
-    					// Gibt dir die Anweisung die Größe zu wählen
-    	    			speakOut("Please choose the size of your drink!");
-    	    			
+    	    			REQUESTCODE = 1236;
+    	    			speakOut("Please choose your seat!");
     	    			try {
-    						Thread.sleep(2000);
+    						Thread.sleep(1200);
     					} catch (InterruptedException e) {
     						// TODO Auto-generated catch block
     						e.printStackTrace();
@@ -430,13 +426,10 @@ public class Fragment_HomePage extends Fragment {
     			else if(Variable.getCategory()[2].equals(OrderString)){
     					Variable.setTasteOrder("tea");
     					Variable.setSizeOrder("normal");
-    	    			REQUESTCODE = 1235;
-    	    			
-    					// Gibt dir die Anweisung die Größe zu wählen
-    	    			speakOut("Please choose the size of your drink!");
-    	    			
+    	    			REQUESTCODE = 1236;
+    	    			speakOut("Please choose your seat!");
     	    			try {
-    						Thread.sleep(2000);
+    						Thread.sleep(1200);
     					} catch (InterruptedException e) {
     						// TODO Auto-generated catch block
     						e.printStackTrace();
@@ -482,7 +475,7 @@ public class Fragment_HomePage extends Fragment {
 
         
         
-// Größenauswahl
+// Grï¿½ï¿½enauswahl
         
     	if (requestCode == 1235 && resultCode == getActivity().RESULT_OK)
     	{
@@ -585,7 +578,7 @@ public class Fragment_HomePage extends Fragment {
         
         	
         	
-// Bestätigen oder zurückgehen
+// Bestï¿½tigen oder zurï¿½ckgehen
         	
         	if (requestCode == 1237 && resultCode == getActivity().RESULT_OK)
         	{

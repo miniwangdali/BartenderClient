@@ -139,7 +139,7 @@ public class Fragment_ServicePage extends Fragment{
 			}
 		});
 		
-		
+// clean-Button	
 		Button cleanButton = (Button)view.findViewById(R.id.cleanBtn);
 		cleanButton.setOnClickListener(new OnClickListener() {
 			
@@ -156,7 +156,8 @@ public class Fragment_ServicePage extends Fragment{
 				confirmDialog.show();
 				
 				Variable.setTasteOrder("clean");	
-	
+				Variable.setSeatOrder("driver");
+				Variable.setSizeOrder("normal");
 			}
 		});
 
@@ -181,7 +182,7 @@ public class Fragment_ServicePage extends Fragment{
 	
 			}
 		});
-		
+//continue	
 		Button continueButton = (Button)view.findViewById(R.id.continueBtn);
 		continueButton.setOnClickListener(new OnClickListener() {
 			

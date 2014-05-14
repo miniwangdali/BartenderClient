@@ -41,8 +41,6 @@
                 android:adjustViewBounds="true"
                 android:src="@drawable/seat"/>
 
-
-
                 <Button 
                 	android:id="@+id/driverBtn"
                 	android:layout_width="match_parent"

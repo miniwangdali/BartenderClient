@@ -95,7 +95,7 @@ public class Fragment_SizePage extends Fragment{
 		normal.setImageResource(R.drawable.cup_normal);
 		ImageView small = (ImageView)view.findViewById(R.id.image_small);
 		small.setImageResource(R.drawable.cup_small);
-		ImageView very = (ImageView )view.findViewById(R.id.image_verysmall);
+		ImageView very = (ImageView)view.findViewById(R.id.image_verysmall);
 		very.setImageResource(R.drawable.cup_verysmall);*/
 		
 		return view;

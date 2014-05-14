@@ -13,7 +13,7 @@
     </style>
 
     <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
+    <style name="AppTheme" parent="android:Theme.Holo.Light.NoActionBar">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
     <style name="CustomDialog" parent="@android:style/Theme.Holo.Light.Dialog">
@@ -32,5 +32,9 @@
     </style>
     <style name="DropDownItemStyle" parent="android:TextAppearance.Widget.TextView.SpinnerItem">
        
+    </style>
+    <style name="CustomProgressDialog" parent="@style/CustomDialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 </resources>

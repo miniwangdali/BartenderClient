@@ -150,7 +150,6 @@ public class Fragment_ServicePage extends Fragment{
 				// Anweisung, falls die Maschine gereinigt werden soll
 				// �ffnet wieder einen Dialog
 
-				new ConfirmDialog(getActivity());
 				ConfirmDialog confirmDialog = ConfirmDialog.createDialog(getActivity());
 				confirmDialog.setMessage("Do you really want to clean the coffee machine? If so put a cup below the machine!");
 				confirmDialog.show();
@@ -173,7 +172,6 @@ public class Fragment_ServicePage extends Fragment{
 				// Anweisung, falls die Maschine gereinigt werden soll
 				// �ffnet wieder einen Dialog
 
-				new ConfirmDialog(getActivity());
 				ConfirmDialog confirmDialog = ConfirmDialog.createDialog(getActivity());
 				confirmDialog.setMessage("Do you really want to stop the process?");
 				confirmDialog.show();
@@ -193,7 +191,6 @@ public class Fragment_ServicePage extends Fragment{
 				// Anweisung, falls die Maschine gereinigt werden soll
 				// �ffnet wieder einen Dialog
 
-				new ConfirmDialog(getActivity());
 				ConfirmDialog confirmDialog = ConfirmDialog.createDialog(getActivity());
 				confirmDialog.setMessage("Do you really want to continue the process?");
 				confirmDialog.show();

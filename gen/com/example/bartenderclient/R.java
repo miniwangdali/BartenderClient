@@ -8,96 +8,120 @@
 package com.example.bartenderclient;
 
 public final class R {
+    public static final class anim {
+        public static final int progressanim=0x7f040000;
+    }
     public static final class attr {
     }
     public static final class drawable {
         public static final int background=0x7f020000;
-        public static final int button=0x7f020001;
-        public static final int button_pressed=0x7f020002;
-        public static final int buttonselector=0x7f020003;
-        public static final int cappuccino=0x7f020004;
-        public static final int chooseselector=0x7f020005;
-        public static final int confirm=0x7f020006;
-        public static final int confirm_pressed=0x7f020007;
-        public static final int confirmselector=0x7f020008;
-        public static final int cup_normal=0x7f020009;
-        public static final int cup_small=0x7f02000a;
-        public static final int cup_verysmall=0x7f02000b;
-        public static final int custom=0x7f02000c;
-        public static final int custom_pressed=0x7f02000d;
-        public static final int frontseat_normal=0x7f02000e;
-        public static final int frontseat_pressed=0x7f02000f;
-        public static final int frontseatselector=0x7f020010;
-        public static final int goselector=0x7f020011;
-        public static final int ic_launcher=0x7f020012;
-        public static final int lightgray=0x7f020027;
-        public static final int lightyellow=0x7f020028;
-        public static final int line=0x7f020013;
-        public static final int milk=0x7f020026;
-        public static final int myfavor=0x7f020014;
-        public static final int myfavor_pressed=0x7f020015;
-        public static final int myfavorselector=0x7f020016;
-        public static final int next=0x7f020017;
-        public static final int normalbutton=0x7f020018;
-        public static final int rearseat_normal=0x7f020019;
-        public static final int rearseat_pressed=0x7f02001a;
-        public static final int rearseatselector=0x7f02001b;
-        public static final int registbutton=0x7f02001c;
-        public static final int seat=0x7f02001d;
-        public static final int shadeshape=0x7f02001e;
-        public static final int shelf=0x7f02001f;
-        public static final int shelf2=0x7f020020;
-        public static final int spinner_normal=0x7f020021;
-        public static final int spinner_selected=0x7f020022;
-        public static final int spinnerselector=0x7f020023;
-        public static final int textofslide=0x7f020024;
-        public static final int white=0x7f020029;
-        public static final int zqlayoutshape=0x7f020025;
+        public static final int buttonselector=0x7f020001;
+        public static final int cappuccino=0x7f020002;
+        public static final int confirm=0x7f020003;
+        public static final int confirm_pressed=0x7f020004;
+        public static final int confirmselector=0x7f020005;
+        public static final int cup_normal=0x7f020006;
+        public static final int cup_small=0x7f020007;
+        public static final int cup_verysmall=0x7f020008;
+        public static final int frontseat_normal=0x7f020009;
+        public static final int frontseat_pressed=0x7f02000a;
+        public static final int frontseatselector=0x7f02000b;
+        public static final int goselector=0x7f02000c;
+        public static final int ic_launcher=0x7f02000d;
+        public static final int lightgray=0x7f02003a;
+        public static final int lightyellow=0x7f02003b;
+        public static final int line=0x7f02000e;
+        public static final int milk=0x7f020039;
+        public static final int myfavor=0x7f02000f;
+        public static final int myfavor_pressed=0x7f020010;
+        public static final int myfavorselector=0x7f020011;
+        public static final int next=0x7f020012;
+        public static final int normalbutton=0x7f020013;
+        public static final int progress_1=0x7f020014;
+        public static final int progress_10=0x7f020015;
+        public static final int progress_11=0x7f020016;
+        public static final int progress_12=0x7f020017;
+        public static final int progress_13=0x7f020018;
+        public static final int progress_14=0x7f020019;
+        public static final int progress_15=0x7f02001a;
+        public static final int progress_16=0x7f02001b;
+        public static final int progress_17=0x7f02001c;
+        public static final int progress_18=0x7f02001d;
+        public static final int progress_19=0x7f02001e;
+        public static final int progress_2=0x7f02001f;
+        public static final int progress_20=0x7f020020;
+        public static final int progress_21=0x7f020021;
+        public static final int progress_22=0x7f020022;
+        public static final int progress_23=0x7f020023;
+        public static final int progress_24=0x7f020024;
+        public static final int progress_3=0x7f020025;
+        public static final int progress_4=0x7f020026;
+        public static final int progress_5=0x7f020027;
+        public static final int progress_6=0x7f020028;
+        public static final int progress_7=0x7f020029;
+        public static final int progress_8=0x7f02002a;
+        public static final int progress_9=0x7f02002b;
+        public static final int rearseat_normal=0x7f02002c;
+        public static final int rearseat_pressed=0x7f02002d;
+        public static final int rearseatselector=0x7f02002e;
+        public static final int registbutton=0x7f02002f;
+        public static final int seat=0x7f020030;
+        public static final int shadeshape=0x7f020031;
+        public static final int shelf=0x7f020032;
+        public static final int shelf2=0x7f020033;
+        public static final int spinner_normal=0x7f020034;
+        public static final int spinner_selected=0x7f020035;
+        public static final int spinnerselector=0x7f020036;
+        public static final int textofslide=0x7f020037;
+        public static final int white=0x7f02003c;
+        public static final int zqlayoutshape=0x7f020038;
     }
     public static final class id {
-        public static final int attestBtn=0x7f07001f;
-        public static final int beverageOrderButton=0x7f07000e;
-        public static final int bottomTxt=0x7f07000a;
-        public static final int buttonlayout=0x7f070024;
-        public static final int centralET=0x7f07001a;
-        public static final int choiceimage=0x7f070029;
-        public static final int cleanBtn=0x7f070020;
-        public static final int confirmBtn=0x7f070002;
-        public static final int confirmTxt=0x7f070001;
-        public static final int continueBtn=0x7f070022;
-        public static final int customBtn=0x7f07000d;
-        public static final int driverBtn=0x7f070013;
-        public static final int goOrderButton=0x7f070010;
-        public static final int homepage_fragment=0x7f070000;
-        public static final int leftET=0x7f070017;
-        public static final int linearLayoutbottom=0x7f070005;
-        public static final int linearlayouttop=0x7f070003;
-        public static final int listlinearLayout=0x7f070009;
-        public static final int menu_settings=0x7f07002a;
-        public static final int myfavorBtn=0x7f07000c;
-        public static final int nextBtn=0x7f070004;
-        public static final int normalBtn=0x7f070025;
-        public static final int rearleftBtn=0x7f070014;
-        public static final int refillBtn=0x7f070006;
-        public static final int rightET=0x7f07001d;
-        public static final int ristrettoBtn=0x7f070027;
-        public static final int scrollView=0x7f070008;
-        public static final int seat=0x7f070012;
-        public static final int seatLayout=0x7f070011;
-        public static final int seatOrderButton=0x7f07000f;
-        public static final int serviceBtn=0x7f070007;
-        public static final int sizepage=0x7f070023;
-        public static final int smallBtn=0x7f070026;
-        public static final int spinnercentral=0x7f07001b;
-        public static final int spinnerleft=0x7f070018;
-        public static final int spinnerright=0x7f07001e;
-        public static final int stopBtn=0x7f070021;
-        public static final int tasteTxt=0x7f070028;
-        public static final int textView1=0x7f070016;
-        public static final int textView2=0x7f070019;
-        public static final int textView3=0x7f07001c;
-        public static final int textView4=0x7f070015;
-        public static final int voiceControl=0x7f07000b;
+        public static final int attestBtn=0x7f08001f;
+        public static final int beverageOrderButton=0x7f08000e;
+        public static final int bottomTxt=0x7f08000a;
+        public static final int buttonlayout=0x7f080024;
+        public static final int centralET=0x7f08001a;
+        public static final int choiceimage=0x7f08002b;
+        public static final int cleanBtn=0x7f080020;
+        public static final int confirmBtn=0x7f080002;
+        public static final int confirmTxt=0x7f080001;
+        public static final int continueBtn=0x7f080022;
+        public static final int customBtn=0x7f08000d;
+        public static final int driverBtn=0x7f080013;
+        public static final int goOrderButton=0x7f080010;
+        public static final int homepage_fragment=0x7f080000;
+        public static final int leftET=0x7f080017;
+        public static final int linearLayoutbottom=0x7f080005;
+        public static final int linearlayouttop=0x7f080003;
+        public static final int listlinearLayout=0x7f080009;
+        public static final int loadingImage=0x7f080029;
+        public static final int menu_settings=0x7f08002c;
+        public static final int msgTxt=0x7f08002a;
+        public static final int myfavorBtn=0x7f08000c;
+        public static final int nextBtn=0x7f080004;
+        public static final int normalBtn=0x7f080025;
+        public static final int rearleftBtn=0x7f080014;
+        public static final int refillBtn=0x7f080006;
+        public static final int rightET=0x7f08001d;
+        public static final int ristrettoBtn=0x7f080027;
+        public static final int scrollView=0x7f080008;
+        public static final int seat=0x7f080012;
+        public static final int seatLayout=0x7f080011;
+        public static final int seatOrderButton=0x7f08000f;
+        public static final int serviceBtn=0x7f080007;
+        public static final int sizepage=0x7f080023;
+        public static final int smallBtn=0x7f080026;
+        public static final int spinnercentral=0x7f08001b;
+        public static final int spinnerleft=0x7f080018;
+        public static final int spinnerright=0x7f08001e;
+        public static final int stopBtn=0x7f080021;
+        public static final int tasteTxt=0x7f080028;
+        public static final int textView1=0x7f080016;
+        public static final int textView2=0x7f080019;
+        public static final int textView3=0x7f08001c;
+        public static final int textView4=0x7f080015;
+        public static final int voiceControl=0x7f08000b;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -109,16 +133,17 @@ public final class R {
         public static final int fragment_servicepage=0x7f030006;
         public static final int fragment_sizepage=0x7f030007;
         public static final int listline=0x7f030008;
-        public static final int spinnerchecked=0x7f030009;
-        public static final int spinneritem=0x7f03000a;
+        public static final int progressdialog=0x7f030009;
+        public static final int spinnerchecked=0x7f03000a;
+        public static final int spinneritem=0x7f03000b;
     }
     public static final class menu {
-        public static final int activity_main=0x7f060000;
+        public static final int activity_main=0x7f070000;
     }
     public static final class string {
-        public static final int app_name=0x7f040000;
-        public static final int hello_world=0x7f040001;
-        public static final int menu_settings=0x7f040002;
+        public static final int app_name=0x7f050000;
+        public static final int hello_world=0x7f050001;
+        public static final int menu_settings=0x7f050002;
     }
     public static final class style {
         /** 
@@ -142,14 +167,15 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f050000;
+        public static final int AppBaseTheme=0x7f060000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f050001;
-        public static final int ConfirmDialog=0x7f050003;
-        public static final int CustomDialog=0x7f050002;
-        public static final int DropDownItemStyle=0x7f050005;
-        public static final int spinnerItemStyle=0x7f050004;
+        public static final int AppTheme=0x7f060001;
+        public static final int ConfirmDialog=0x7f060003;
+        public static final int CustomDialog=0x7f060002;
+        public static final int CustomProgressDialog=0x7f060006;
+        public static final int DropDownItemStyle=0x7f060005;
+        public static final int spinnerItemStyle=0x7f060004;
     }
 }

@@ -107,7 +107,6 @@ public class Fragment_HomePage extends Fragment {
 				
 				//Best�tigen des Favorite Drinks und der Sitzposition Fahrer 
 				
-				new ConfirmDialog(getActivity());
 				ConfirmDialog confirmDialog = ConfirmDialog.createDialog(getActivity());
 				confirmDialog.setMessage("YOU ORDERED:\n" + Variable.getTasteOrder() + "\nAT\n" + "driver");
 				confirmDialog.show();

@@ -63,7 +63,6 @@ public class Fragment_SeatPage extends Fragment{
 			
 			//�ffnet einen Dialog, bei dem die Bestellung noch bet�tigt werden muss. 
 			
-			new ConfirmDialog(getActivity());
 			ConfirmDialog confirmDialog = ConfirmDialog.createDialog(getActivity());
 			confirmDialog.setMessage("YOU ORDERED:\n" + Database.Variable.getTasteOrder() + "\nAT\n" + Database.Variable.getSeatOrder());
 			confirmDialog.show();

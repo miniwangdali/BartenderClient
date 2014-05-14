@@ -4,10 +4,14 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Set;
 import java.util.UUID;
+
+import com.artificialarm.bartenderclient.ui.ConfirmDialog;
+import com.artificialarm.bartenderclient.ui.CustomProgressDialog;
 import com.artificialarm.bartenderclient.ui.SendData;
 import com.example.bartenderclient.R;
 
 import Database.Variable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.app.Activity;
@@ -33,16 +37,17 @@ public class MainActivity extends Activity {
 	
 	// Bluetooth
     private static final int REQUEST_ENABLE_BT = 1;
-
     public static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
    
     TextView text;
     Button button;
+    CustomProgressDialog customProgressDialog;
     BluetoothAdapter btAdapter;
     Set<BluetoothDevice> pairedDevices;
     ArrayAdapter<String> BTArrayAdapter;
     BluetoothDevice selecteddevice;
     static OutputStream mmOutputStream;
+    
 	
     
     
@@ -51,12 +56,17 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		FragmentManager fManager = getFragmentManager();
+/*		FragmentManager fManager = getFragmentManager();
 		FragmentTransaction fTransaction = fManager.beginTransaction();
 		fTransaction.add(R.id.homepage_fragment, new Fragment_HomePage());
-		fTransaction.commit();
+		fTransaction.commit();*/
 		
 		setContentView(R.layout.activity_main);
+		
+		customProgressDialog = CustomProgressDialog.createDialog(this);
+		customProgressDialog.setMessage("connecting to the bartender...");
+		customProgressDialog.show();
+		
 		
 	/*		
 		//aktualisiert immer die Kategorien
@@ -65,7 +75,7 @@ public class MainActivity extends Activity {
 		array2[0] = sp3.getString("NAME_CATEGORY0", "not set");
 		array2[1] = sp3.getString("NAME_CATEGORY1", "not set");
 		array2[2] = sp3.getString("NAME_CATEGORY2", "not set");
-		// wenn die Kategorien noch nicht geändert worden sind, dann wird nichts gemacht, wenn schon dann setzt er sie aktuell
+		// wenn die Kategorien noch nicht geï¿½ndert worden sind, dann wird nichts gemacht, wenn schon dann setzt er sie aktuell
 		if(!array2[0].equals("not set")){		
 			Variable.setCategory(array2);
 		}else{
@@ -78,18 +88,30 @@ public class MainActivity extends Activity {
 		// Bluetooth!!!!!!!!!!!!!!!!!!!!!!
 		
 		 // take an instance of BluetoothAdapter - Bluetooth radio
-	      btAdapter = BluetoothAdapter.getDefaultAdapter();
-	      
-	      getBluetoothAdapter();
-	      
-	      enableBluetooth();
+
+		btAdapter = BluetoothAdapter.getDefaultAdapter();
 		
-	      find();
+		new BluetoothCheckTask(this, customProgressDialog, btAdapter).execute("");
+		
+	    //find();
 	}
+	
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	       // TODO Auto-generated method stub
+	       if(requestCode == REQUEST_ENABLE_BT){
+	           if(btAdapter.isEnabled()) {
+	               text.setText("Status: Enabled");
+	           } else {  
+	               text.setText("Status: Disabled");
+	           }
+	       }
+	   }
 	
 	// Bluetooth zulassen
 	
-	private void getBluetoothAdapter() {
+	/*private void getBluetoothAdapter() {
 			
 			//get Bluetooth Adapter
 			btAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -99,7 +121,7 @@ public class MainActivity extends Activity {
 				Toast.makeText(getApplicationContext(), "bluetooth is not supported", Toast.LENGTH_SHORT).show();
 				finish();
 			}
-	   }
+	   }*/
 	
 	public void enableBluetooth(){
 	      if (!btAdapter.isEnabled()) {
@@ -116,17 +138,7 @@ public class MainActivity extends Activity {
 	   }
 
 	
-	   @Override
-	   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-	       // TODO Auto-generated method stub
-	       if(requestCode == REQUEST_ENABLE_BT){
-	           if(btAdapter.isEnabled()) {
-	               text.setText("Status: Enabled");
-	           } else {  
-	               text.setText("Status: Disabled");
-	           }
-	       }
-	   }
+	   
 	   
 		// Verbindung bekommen
 	   
@@ -200,13 +212,5 @@ public class MainActivity extends Activity {
 	     
 	    }
 	   
-
-	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_main, menu);
-		return true;
-	}
 	
 }

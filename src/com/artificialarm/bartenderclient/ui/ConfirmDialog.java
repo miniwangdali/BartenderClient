@@ -41,7 +41,7 @@ public class ConfirmDialog extends Dialog {
 				
 				if (Variable.getTasteOrder().equals("clean") || Variable.getTasteOrder().equals("stop") ||Variable.getTasteOrder().equals("continue")){
 					
-					// Anweisung, wenn der Clean-Button zuvor ausgewählt wurde!
+					// Anweisung, wenn der Clean-Button zuvor ausgewï¿½hlt wurde!
 					
 					// sendet die Bestellung per Bluetooth zum Arduino
 					try {
@@ -51,12 +51,12 @@ public class ConfirmDialog extends Dialog {
 						e.printStackTrace();
 					}
 					
-					// Schließt das Dialogfenster
+					// Schlieï¿½t das Dialogfenster
 					confirmDialog.dismiss();
 				}
 
 				else{
-				// schreib das bestellte Getränk und die Zeit in die Datenbank
+				// schreib das bestellte Getrï¿½nk und die Zeit in die Datenbank
 				Database.Time time = new Database.Time();
 				
 				Database.DatabaseOpenHelper db = new Database.DatabaseOpenHelper(context);
@@ -73,7 +73,7 @@ public class ConfirmDialog extends Dialog {
 					e.printStackTrace();
 				}
 				
-				// Schließt das Dialogfenster
+				// Schlieï¿½t das Dialogfenster
 				confirmDialog.dismiss();
 				}
 			}
@@ -84,7 +84,7 @@ public class ConfirmDialog extends Dialog {
 	
 
 
-	public ConfirmDialog setTitile(String strTitle) {
+	public ConfirmDialog setTitle(String strTitle) {
 		return confirmDialog;
 	}
 

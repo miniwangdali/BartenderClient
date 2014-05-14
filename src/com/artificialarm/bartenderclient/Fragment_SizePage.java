@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 public class Fragment_SizePage extends Fragment{
@@ -90,6 +91,12 @@ public class Fragment_SizePage extends Fragment{
 			}
 		});
 		
+		/*ImageView normal = (ImageView)view.findViewById(R.id.image_normal);
+		normal.setImageResource(R.drawable.cup_normal);
+		ImageView small = (ImageView)view.findViewById(R.id.image_small);
+		small.setImageResource(R.drawable.cup_small);
+		ImageView very = (ImageView )view.findViewById(R.id.image_verysmall);
+		very.setImageResource(R.drawable.cup_verysmall);*/
 		
 		return view;
 	}

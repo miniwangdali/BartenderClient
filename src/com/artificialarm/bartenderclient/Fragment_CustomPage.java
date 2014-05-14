@@ -230,7 +230,6 @@ public class Fragment_CustomPage extends Fragment {
 				// Anweisung, falls die Maschine gereinigt werden soll
 				// �ffnet wieder einen Dialog
 				
-				new ConfirmDialog(getActivity());
 				ConfirmDialog confirmDialog = ConfirmDialog.createDialog(getActivity());
 				confirmDialog.setMessage("Do you really want to refill the cup? If so put your cup into the arm!");
 				confirmDialog.show();

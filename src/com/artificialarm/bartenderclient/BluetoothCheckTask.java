@@ -69,7 +69,7 @@ public class BluetoothCheckTask extends AsyncTask<String, Integer, String> {
 	@Override
 	protected void onPostExecute(String result){
 		enableBluetooth();
-		mDialog.dismiss();
+		//mDialog.dismiss();
 		//new BluetoothConnectTask(mActivity, mDialog, btAdapter);
 		FragmentManager fManager = mActivity.getFragmentManager();
 		FragmentTransaction fTransaction = fManager.beginTransaction();
@@ -86,7 +86,7 @@ public class BluetoothCheckTask extends AsyncTask<String, Integer, String> {
 		
 		//check if the device support Bluetooth, otherwise make a Toast
 		if (btAdapter == null){
-			Toast.makeText(mActivity, "bluetooth is not supported", Toast.LENGTH_SHORT).show();
+			//Toast.makeText(mActivity, "bluetooth is not supported", Toast.LENGTH_SHORT).show();
 			//mActivity.finish();
 		}
 	}

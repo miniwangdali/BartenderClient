@@ -13,6 +13,8 @@ import com.example.bartenderclient.R;
 import Database.Variable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.preference.PreferenceManager;
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -56,10 +58,10 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-/*		FragmentManager fManager = getFragmentManager();
+		FragmentManager fManager = getFragmentManager();
 		FragmentTransaction fTransaction = fManager.beginTransaction();
 		fTransaction.add(R.id.homepage_fragment, new Fragment_HomePage());
-		fTransaction.commit();*/
+		fTransaction.commit();
 		
 		setContentView(R.layout.activity_main);
 		
@@ -91,8 +93,20 @@ public class MainActivity extends Activity {
 
 		btAdapter = BluetoothAdapter.getDefaultAdapter();
 		
-		new BluetoothCheckTask(this, customProgressDialog, btAdapter).execute("");
+		//new BluetoothCheckTask(this, customProgressDialog, btAdapter).execute("");
 		
+		getBluetoothAdapter();
+		enableBluetooth();
+		
+		Thread connectThread = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				find();
+			}
+		});
+		connectThread.start();
 	    //find();
 	}
 	
@@ -111,7 +125,7 @@ public class MainActivity extends Activity {
 	
 	// Bluetooth zulassen
 	
-	/*private void getBluetoothAdapter() {
+	private void getBluetoothAdapter() {
 			
 			//get Bluetooth Adapter
 			btAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -121,7 +135,7 @@ public class MainActivity extends Activity {
 				Toast.makeText(getApplicationContext(), "bluetooth is not supported", Toast.LENGTH_SHORT).show();
 				finish();
 			}
-	   }*/
+	   }
 	
 	public void enableBluetooth(){
 	      if (!btAdapter.isEnabled()) {
@@ -162,11 +176,20 @@ public class MainActivity extends Activity {
 						}
 	                 }
 	             
+	            }else{
+	            	/*if(customProgressDialog != null){
+	            		customProgressDialog.dismiss();
+	            	}
+			        Toast.makeText(getApplicationContext(), "Sorry, your device is disconnected", Toast.LENGTH_LONG).show();*/
+	            	Message msg = new Message();
+	            	msg.what = 1;
+	            	handler.sendMessage(msg);
 	            }
 	        }
 	    };
 	     
 	   public void find() {
+		   
 	       if (btAdapter.isDiscovering()) {
 	           // the button is pressed when it discovers, so cancel the discovery
 	           btAdapter.cancelDiscovery();
@@ -188,8 +211,13 @@ public class MainActivity extends Activity {
 
 		        // Do work to manage the connection (in a separate thread)
 		        mmOutputStream = mmSocket.getOutputStream();
-		        Toast.makeText(getApplicationContext(), "Now your device is connected", Toast.LENGTH_LONG).show();
-		        
+		        /*if(customProgressDialog != null){
+		        	customProgressDialog.dismiss();
+		        }
+		        Toast.makeText(getApplicationContext(), "Now your device is connected", Toast.LENGTH_LONG).show();*/
+		        Message msg = new Message();
+		        msg.what = 0;
+		        handler.sendMessage(msg);
 		}
 	   
 	   
@@ -211,6 +239,27 @@ public class MainActivity extends Activity {
 	        mmOutputStream.write(send.getBytes());
 	     
 	    }
+	  
+	  private Handler handler = new Handler(){
+		  @Override
+		  public void handleMessage(Message msg){
+			  switch (msg.what) {
+			case 0:
+				if(customProgressDialog != null){
+		        	customProgressDialog.dismiss();
+		        }
+		        Toast.makeText(getApplicationContext(), "Now your device is connected", Toast.LENGTH_LONG).show();
+				break;
+
+			default:
+				if(customProgressDialog != null){
+            		customProgressDialog.dismiss();
+            	}
+		        Toast.makeText(getApplicationContext(), "Sorry, your device is disconnected", Toast.LENGTH_LONG).show();
+				break;
+			}
+		  }
+	  };
 	   
 	
 }

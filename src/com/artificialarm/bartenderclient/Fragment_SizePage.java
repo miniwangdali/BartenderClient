@@ -25,6 +25,13 @@ public class Fragment_SizePage extends Fragment{
 		LinearLayout linearLayout = (LinearLayout)view.findViewById(R.id.sizepage);
 		ListLayout finalLayout = new ListLayout(getActivity());
 		finalLayout.setTaste(Database.Variable.getTasteOrder());
+		if(Database.Variable.getTasteOrder().equals("juice")){
+			finalLayout.setPicID(R.drawable.cappuccino6);
+		}else if(Database.Variable.getTasteOrder().equals("tea")){
+			finalLayout.setPicID(R.drawable.cappuccinotea);
+		}else{
+			finalLayout.setPicID(R.drawable.cappuccino);
+		}
 		linearLayout.addView(finalLayout, 1);
 		
 		Button normalbtn = (Button)view.findViewById(R.id.normalBtn);

@@ -5,6 +5,7 @@ import com.example.bartenderclient.R;
 import android.app.Activity;
 import android.content.Context;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -12,6 +13,7 @@ public class ListLayout extends LinearLayout {
 	
 	private TextView tasteText;
 	private String taste = new String();
+	private int picID;
 
 	public ListLayout(Context context) {
 		super(context);
@@ -25,6 +27,9 @@ public class ListLayout extends LinearLayout {
 		View view = this;
 		tasteText = (TextView)view.findViewById(R.id.tasteTxt);
 		tasteText.setText(taste);
+		ImageView pic = (ImageView)view.findViewById(R.id.pic);
+		pic.setImageResource(picID);
+		
 	}
 
 	public String getTaste() {
@@ -33,6 +38,15 @@ public class ListLayout extends LinearLayout {
 
 	public void setTaste(String taste) {
 		this.taste = taste;
+		initialLayout();
+	}
+
+	public int getPicID() {
+		return picID;
+	}
+
+	public void setPicID(int picID) {
+		this.picID = picID;
 		initialLayout();
 	}
 

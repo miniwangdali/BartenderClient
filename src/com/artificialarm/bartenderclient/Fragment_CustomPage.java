@@ -106,6 +106,13 @@ public class Fragment_CustomPage extends Fragment {
 		for(int i = taste.length; i > 0; i--){
 			listLayout = new ListLayout(getActivity());
 			listLayout.setTaste(taste[i - 1]);	
+			if(taste[i - 1].equals("juice")){
+				listLayout.setPicID(R.drawable.cappuccino6);
+			}else if(taste[i - 1].equals("tea")){
+				listLayout.setPicID(R.drawable.cappuccinotea);
+			}else{
+				listLayout.setPicID(R.drawable.cappuccino);
+			}
 			listlinearLayout.addView(listLayout,0);
 			listgroup.add(0, listLayout);
 		}

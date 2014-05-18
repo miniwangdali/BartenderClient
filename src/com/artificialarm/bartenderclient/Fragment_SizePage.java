@@ -34,7 +34,7 @@ public class Fragment_SizePage extends Fragment{
 			public void onClick(View v) {
 				
 				// schreibt die Gr��e in SizeOrder
-				Variable.setSizeOrder("normal");
+				Variable.setSizeOrder("lungo");
 				
 				
 				// �ffnet die neue Fragment fragment_SeatPage
@@ -55,7 +55,7 @@ public class Fragment_SizePage extends Fragment{
 			public void onClick(View v) {
 				
 				// schreibt die Gr��e in SizeOrder
-				Variable.setSizeOrder("small");
+				Variable.setSizeOrder("espresso");
 				
 				
 				// �ffnet die neue Fragment fragment_SeatPage

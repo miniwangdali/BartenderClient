@@ -139,9 +139,9 @@ public class Fragment_ServicePage extends Fragment{
 			}
 		});
 		
-// clean-Button	
-		Button cleanButton = (Button)view.findViewById(R.id.cleanBtn);
-		cleanButton.setOnClickListener(new OnClickListener() {
+// Storage-Button	
+		Button openstroageButton = (Button)view.findViewById(R.id.openstorageBtn);
+		openstroageButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -154,12 +154,33 @@ public class Fragment_ServicePage extends Fragment{
 				confirmDialog.setMessage("Do you really want to clean the coffee machine? If so put a cup below the machine!");
 				confirmDialog.show();
 				
-				Variable.setTasteOrder("clean");	
+				Variable.setTasteOrder("openstorage");	
 				Variable.setSeatOrder("driver");
 				Variable.setSizeOrder("normal");
 			}
 		});
 
+// Storage-Button	
+				Button closestorageButton = (Button)view.findViewById(R.id.closestorageBtn);
+				closestorageButton.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						
+						// Anweisung, was beim Dr�cken des clean-Buttons geschehen soll
+						// Anweisung, falls die Maschine gereinigt werden soll
+						// �ffnet wieder einen Dialog
+
+						ConfirmDialog confirmDialog = ConfirmDialog.createDialog(getActivity());
+						confirmDialog.setMessage("Do you really want to clean the coffee machine? If so put a cup below the machine!");
+						confirmDialog.show();
+						
+						Variable.setTasteOrder("closestorage");	
+						Variable.setSeatOrder("driver");
+						Variable.setSizeOrder("normal");
+					}
+				});		
+		
 	
 // Stop function f�r die tests	
 		Button stopButton = (Button)view.findViewById(R.id.stopBtn);
@@ -176,7 +197,9 @@ public class Fragment_ServicePage extends Fragment{
 				confirmDialog.setMessage("Do you really want to stop the process?");
 				confirmDialog.show();
 				
-				Variable.setTasteOrder("stop");	
+				Variable.setTasteOrder("stop");
+				Variable.setSeatOrder("driver");
+				Variable.setSizeOrder("normal");
 	
 			}
 		});
@@ -196,6 +219,8 @@ public class Fragment_ServicePage extends Fragment{
 				confirmDialog.show();
 				
 				Variable.setTasteOrder("continue");	
+				Variable.setSeatOrder("driver");
+				Variable.setSizeOrder("normal");
 	
 			}
 		});

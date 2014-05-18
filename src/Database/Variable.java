@@ -8,7 +8,7 @@ public class Variable {
 	private static String seatOrder;
 	private static String sizeOrder;
 	private static String categoryOrder;
-	private static String[] taste = {"Coffee", "Espresso", "Tea"};
+	private static String[] taste = {"coffee", "juice", "tea"};
 	private static String[] category = {"Coffee", "Juice", "Tea"};
 	
 	public Variable(){

@@ -48,7 +48,8 @@ public class MainActivity extends Activity {
     Set<BluetoothDevice> pairedDevices;
     ArrayAdapter<String> BTArrayAdapter;
     BluetoothDevice selecteddevice;
-    static OutputStream mmOutputStream;
+    static OutputStream OutputStream;
+    java.io.InputStream InputStream;
     
 	
     
@@ -65,27 +66,12 @@ public class MainActivity extends Activity {
 		
 		setContentView(R.layout.activity_main);
 		
+		
+		// Dialog mit dem Wartezeichen fürs Verbinden
 		customProgressDialog = CustomProgressDialog.createDialog(this);
 		customProgressDialog.setMessage("connecting to the bartender...");
 		customProgressDialog.show();
-		
-		
-	/*		
-		//aktualisiert immer die Kategorien
-		String array2[] ={"a","b","c"};
-		SharedPreferences sp3=PreferenceManager.getDefaultSharedPreferences(this);
-		array2[0] = sp3.getString("NAME_CATEGORY0", "not set");
-		array2[1] = sp3.getString("NAME_CATEGORY1", "not set");
-		array2[2] = sp3.getString("NAME_CATEGORY2", "not set");
-		// wenn die Kategorien noch nicht geï¿½ndert worden sind, dann wird nichts gemacht, wenn schon dann setzt er sie aktuell
-		if(!array2[0].equals("not set")){		
-			Variable.setCategory(array2);
-		}else{
-		}
-		
-	*/	
-		
-		
+			
 		
 		// Bluetooth!!!!!!!!!!!!!!!!!!!!!!
 		
@@ -97,6 +83,9 @@ public class MainActivity extends Activity {
 		
 		getBluetoothAdapter();
 		enableBluetooth();
+	
+		
+		// wenn noch verbunden wird, kann mann nicht auf die app zugreifen
 		
 		Thread connectThread = new Thread(new Runnable() {
 			
@@ -107,7 +96,9 @@ public class MainActivity extends Activity {
 			}
 		});
 		connectThread.start();
-	    //find();
+	
+		
+	 //   find();		// alte Version mit nicht ladezeichen und mit zugriff beim laden
 	}
 	
 	
@@ -156,7 +147,9 @@ public class MainActivity extends Activity {
 	   
 		// Verbindung bekommen
 	   
+	// Discovering devices
 	   final BroadcastReceiver bReceiver = new BroadcastReceiver() {
+		   
 	        public void onReceive(Context context, Intent intent) {
 	            String action = intent.getAction();
 	            // When discovery finds a device
@@ -164,6 +157,8 @@ public class MainActivity extends Activity {
 	                 // Get the BluetoothDevice object from the Intent
 	                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);                 
 	                 
+	                 
+	                 // Falls es das HC-06 findet, soll es sich verbinden
 	                 if (device.getName().equals("HC-06")){
 	                	 
 	                	 selecteddevice=device;
@@ -176,11 +171,16 @@ public class MainActivity extends Activity {
 						}
 	                 }
 	             
-	            }else{
+	            }
+	            // Anweisung, wenn kein Gerät gefunden wird
+	            else{
 	            	/*if(customProgressDialog != null){
 	            		customProgressDialog.dismiss();
 	            	}
 			        Toast.makeText(getApplicationContext(), "Sorry, your device is disconnected", Toast.LENGTH_LONG).show();*/
+	            	
+	            	// schreibt in msg.what eine eins um zu sagen, dass das Gerät nicht verbunden ist
+	            	
 	            	Message msg = new Message();
 	            	msg.what = 1;
 	            	handler.sendMessage(msg);
@@ -188,7 +188,12 @@ public class MainActivity extends Activity {
 	        }
 	    };
 	     
+
+	    
+	    
 	   public void find() {
+		   
+		   // Anweisung: wenn schon nach Geräten gesucht wird abbrechen und neu starten, sonst Discovery starten -> Broadcast Receiver
 		   
 	       if (btAdapter.isDiscovering()) {
 	           // the button is pressed when it discovers, so cancel the discovery
@@ -203,18 +208,24 @@ public class MainActivity extends Activity {
 	    
 	   public void getConnection() throws IOException{
 		   
-		    	BluetoothSocket mmSocket;
+		   // as Client
+		   
+		    	BluetoothSocket Socket;
 		        BluetoothSocket tmp = null;
 		        tmp = selecteddevice.createRfcommSocketToServiceRecord(MY_UUID);
-		        mmSocket = tmp;
-		        mmSocket.connect();
+		        Socket = tmp;
+		        Socket.connect();
 
 		        // Do work to manage the connection (in a separate thread)
-		        mmOutputStream = mmSocket.getOutputStream();
-		        /*if(customProgressDialog != null){
-		        	customProgressDialog.dismiss();
-		        }
-		        Toast.makeText(getApplicationContext(), "Now your device is connected", Toast.LENGTH_LONG).show();*/
+		        OutputStream = Socket.getOutputStream();
+		        
+		        // InputStream
+		        InputStream = Socket.getInputStream();		// daten empfangen
+		             
+		        
+		  //      Toast.makeText(getApplicationContext(), "Now your device is connected", Toast.LENGTH_LONG).show();*/
+		        
+		        // schreibt die null in msg.what -> Handler, gibt aus das das Gerät verbunden ist
 		        Message msg = new Message();
 		        msg.what = 0;
 		        handler.sendMessage(msg);
@@ -226,31 +237,81 @@ public class MainActivity extends Activity {
 	   	   
 	  public static void sendData() throws IOException
 	    {
-	     //   String msg = "111";
-	     //   mmOutputStream.write(msg.getBytes());
+
+		  // schreibt in send die zu sendende Zahl, die in SendData gesendet wird
 	        SendData convertedData = new SendData();
 	        String send = convertedData.convertData();
-	        
+	/*        
 	        Log.d("TAGMICHI_1", Variable.getSeatOrder());
 	        Log.d("TAGMICHI_2", Variable.getSizeOrder());
 	        Log.d("TAGMICHI_3", Variable.getTasteOrder());
 	        Log.d("TAGMICHI", send);
-	        
-	        mmOutputStream.write(send.getBytes());
+	*/     
+	       // Sendet send
+	        OutputStream.write(send.getBytes());
 	     
 	    }
+
+	// Daten empfangen 
+	  
+	  public class ConnectedThread extends Thread {
+		 
+
+		  public void run() {
+		        byte[] buffer = new byte[1024];  // buffer store for the stream
+		        int bytes; // bytes returned from read()
+		 
+		        // Keep listening to the InputStream until an exception occurs
+		        while (true) {
+		            try {
+		                // Read from the InputStream
+		                bytes = InputStream.read(buffer);
+		                // Send the obtained bytes to the UI activity
+		                handler.obtainMessage(2, bytes, -1, buffer)
+		                        .sendToTarget();
+		            } catch (IOException e) {
+		                break;
+		            }
+		        }
+		    }
+
+	  }
+
+	// Ende Daten empfangen	
+	  
 	  
 	  private Handler handler = new Handler(){
 		  @Override
 		  public void handleMessage(Message msg){
 			  switch (msg.what) {
+			  // Toast: Device is Connected
 			case 0:
 				if(customProgressDialog != null){
 		        	customProgressDialog.dismiss();
 		        }
 		        Toast.makeText(getApplicationContext(), "Now your device is connected", Toast.LENGTH_LONG).show();
 				break;
-
+				
+// daten empfangen				
+				
+			  // für das Erhalten von Daten
+			case 2:
+				// Anweisung
+		        
+				//Get the bytes from the msg.obj
+				 byte[] readBuf = (byte[]) msg.obj;
+				 // construct a string from the valid bytes in the buffer
+				 String readMessage = new String(readBuf, 0, msg.arg1);
+				
+				 Log.d("TAGMICHI", readMessage);
+				 
+				 Toast.makeText(getApplicationContext(), readMessage, Toast.LENGTH_LONG).show();
+				
+				break;
+				
+// Ende daten empfangen				
+				
+				
 			default:
 				if(customProgressDialog != null){
             		customProgressDialog.dismiss();

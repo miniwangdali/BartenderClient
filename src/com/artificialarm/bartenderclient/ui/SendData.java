@@ -17,7 +17,7 @@ public class SendData {
 				
 		
 		// vorne
-		if (Variable.getSeatOrder().equals("driver") || Variable.getSeatOrder().equals("codriver")){
+		if (Variable.getSeatOrder().equals("front")){
 			//Variable.getTaste()[0]
 			if (Variable.getTasteOrder().equals(Variable.getTaste()[0])){
 			
@@ -73,6 +73,14 @@ public class SendData {
 				sendString="190";											// CLEAN-ANWEISUNG
 				return sendString;
 			}
+			else if (Variable.getTasteOrder().equals("openstorage")){
+				sendString="193";											// Storage-ANWEISUNG
+				return sendString;
+			}
+			else if (Variable.getTasteOrder().equals("closestorage")){
+				sendString="194";											// Storage-ANWEISUNG
+				return sendString;
+			}
 			else if (Variable.getTasteOrder().equals("stop")){
 				sendString="191";											// Stop-ANWEISUNG
 				return sendString;
@@ -85,7 +93,7 @@ public class SendData {
 	
 		
 		// hinten
-		else if (Variable.getSeatOrder().equals("rearleft") || Variable.getSeatOrder().equals("rearright")){
+		else if (Variable.getSeatOrder().equals("back")){
 			//Variable.getTaste()[0]
 			if (Variable.getTasteOrder().equals(Variable.getTaste()[0])){
 			
@@ -140,6 +148,14 @@ public class SendData {
 			else if (Variable.getTasteOrder().equals("clean")){
 					sendString="190";											// CLEAN-ANWEISUNG
 					return sendString;
+			}
+			else if (Variable.getTasteOrder().equals("openstorage")){
+				sendString="193";											// Storage-ANWEISUNG
+				return sendString;
+			}
+			else if (Variable.getTasteOrder().equals("closestorage")){
+				sendString="194";											// Storage-ANWEISUNG
+				return sendString;
 			}
 			else if (Variable.getTasteOrder().equals("stop")){
 				sendString="191";											// Stop-ANWEISUNG

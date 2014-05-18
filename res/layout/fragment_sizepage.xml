@@ -12,7 +12,7 @@
         android:gravity="center"
         android:paddingBottom="15dp"
         android:paddingTop="25dp"
-        android:text="Choose a size~"
+        android:text="Choose a size!"
         android:textColor="#ffffff"
         android:textSize="30sp" />
     
@@ -60,9 +60,9 @@
         	android:layout_marginRight="5dp"
         	android:layout_marginTop="20dp"
         	android:background="@drawable/normalbutton"
-        	android:text="normal"
+        	android:text="lungo"
         	android:textColor="#ffffff"
-        	android:textSize="20sp" />
+        	android:textSize="15sp" />
 
     	<Button
         	android:id="@+id/smallBtn"
@@ -74,9 +74,9 @@
         	android:layout_marginRight="5dp"
         	android:layout_marginTop="20dp"
         	android:background="@drawable/normalbutton"
-        	android:text="small"
+        	android:text="espresso"
         	android:textColor="#ffffff"
-        	android:textSize="20sp" />
+        	android:textSize="15sp" />
 
     	<Button
         	android:id="@+id/ristrettoBtn"
@@ -88,9 +88,9 @@
         	android:layout_marginRight="5dp"
         	android:layout_marginTop="20dp"
         	android:background="@drawable/normalbutton"
-        	android:text="very small"
+        	android:text="ristretto"
         	android:textColor="#ffffff"
-        	android:textSize="20sp" />
+        	android:textSize="15sp" />
     </LinearLayout>
 	
 

@@ -50,11 +50,11 @@ public class Fragment_SeatPage extends Fragment{
 			
 			switch(button.getId()){
 			case R.id.driverBtn:
-				Database.Variable.setSeatOrder("driver");
+				Database.Variable.setSeatOrder("front");
 				break;
 
 			case R.id.rearleftBtn:
-				Database.Variable.setSeatOrder("rearleft");
+				Database.Variable.setSeatOrder("back");
 				break;
 
 			default:
@@ -64,7 +64,7 @@ public class Fragment_SeatPage extends Fragment{
 			//�ffnet einen Dialog, bei dem die Bestellung noch bet�tigt werden muss. 
 			
 			ConfirmDialog confirmDialog = ConfirmDialog.createDialog(getActivity());
-			confirmDialog.setMessage("YOU ORDERED:\n" + Database.Variable.getTasteOrder() + "\nAT\n" + Database.Variable.getSeatOrder());
+			confirmDialog.setMessage("You ordered:\n" + Database.Variable.getTasteOrder() + "\nat\n" + Database.Variable.getSeatOrder());
 			confirmDialog.show();
 			
 

@@ -219,24 +219,26 @@ public class Fragment_CustomPage extends Fragment {
 		});
 		
 		
-		// Refill-Button
-		
-		Button refillButton =(Button)view.findViewById(R.id.refillBtn);
-		refillButton.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// Anweisung, was beim Dr�cken des refill-Buttons geschehen soll
-				// Anweisung, falls die Maschine gereinigt werden soll
-				// �ffnet wieder einen Dialog
-				
-				ConfirmDialog confirmDialog = ConfirmDialog.createDialog(getActivity());
-				confirmDialog.setMessage("Do you really want to refill the cup? If so put your cup into the arm!");
-				confirmDialog.show();
-				
-				
-			}
-		});
+		// clean-Button	
+				Button cleanButton = (Button)view.findViewById(R.id.cleanBtn);
+				cleanButton.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						
+						// Anweisung, was beim Dr�cken des clean-Buttons geschehen soll
+						// Anweisung, falls die Maschine gereinigt werden soll
+						// �ffnet wieder einen Dialog
+
+						ConfirmDialog confirmDialog = ConfirmDialog.createDialog(getActivity());
+						confirmDialog.setMessage("Do you really want to clean the coffee machine? If so put a cup below the machine!");
+						confirmDialog.show();
+						
+						Variable.setTasteOrder("clean");	
+						Variable.setSeatOrder("driver");
+						Variable.setSizeOrder("normal");
+					}
+				});
 		
 		// Service-Button
 		

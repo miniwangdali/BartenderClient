@@ -25,6 +25,9 @@ public class CustomProgressDialog extends Dialog {
 	}
 
 	public static CustomProgressDialog createDialog(Context context) {
+		
+		// erzeugt den Dialog
+		
 		customProgressDialog = new CustomProgressDialog(context,
 				R.style.CustomProgressDialog);
 		customProgressDialog.setContentView(R.layout.progressdialog);
@@ -35,6 +38,7 @@ public class CustomProgressDialog extends Dialog {
 	
 	public void onWindowFocusChanged(boolean hasFocus) {
 
+		// gibt die verschiedenen wartezeichen aus
 		
 		if (customProgressDialog == null) {
 			return;

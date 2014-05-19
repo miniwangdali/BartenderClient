@@ -241,12 +241,12 @@ public class MainActivity extends Activity {
 		  // schreibt in send die zu sendende Zahl, die in SendData gesendet wird
 	        SendData convertedData = new SendData();
 	        String send = convertedData.convertData();
-	/*        
+	        
 	        Log.d("TAGMICHI_1", Variable.getSeatOrder());
 	        Log.d("TAGMICHI_2", Variable.getSizeOrder());
 	        Log.d("TAGMICHI_3", Variable.getTasteOrder());
 	        Log.d("TAGMICHI", send);
-	*/     
+	     
 	       // Sendet send
 	        OutputStream.write(send.getBytes());
 	     

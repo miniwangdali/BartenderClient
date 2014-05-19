@@ -44,7 +44,7 @@ public class ConfirmDialog extends Dialog {
 			public void onClick(View v) {
 				// das wird beim Confirm-Button geklickt gemacht:
 				
-				if (Variable.getTasteOrder().equals("clean") || Variable.getTasteOrder().equals("stop") ||Variable.getTasteOrder().equals("continue")){
+				if (Variable.getTasteOrder().equals("clean") || Variable.getTasteOrder().equals("stop") ||Variable.getTasteOrder().equals("continue") ||Variable.getTasteOrder().equals("openstorage") ||Variable.getTasteOrder().equals("closestorage")){
 					
 					// Anweisung, wenn der Clean-Button zuvor ausgew�hlt wurde!
 					
@@ -82,6 +82,8 @@ public class ConfirmDialog extends Dialog {
 				
 				// Schlie�t das Dialogfenster
 				confirmDialog.dismiss();
+				
+
 				}
 			}
 		});

@@ -209,7 +209,7 @@ public class Fragment_CustomPage extends Fragment {
 				// Anweisung, falls es nicht Kaffee ist
 					
 				// setzt die Gr��e des Getr�nks auf normal
-				Variable.setSizeOrder("normal");
+				Variable.setSizeOrder("lungo");
 						
 				//�ffnet neues Layout SeatPage und gibt den TasteOrder in einem Toast aus
 				Toast.makeText(getActivity(), Variable.getTasteOrder(), Toast.LENGTH_LONG).show();
@@ -242,8 +242,8 @@ public class Fragment_CustomPage extends Fragment {
 						confirmDialog.show();
 						
 						Variable.setTasteOrder("clean");	
-						Variable.setSeatOrder("driver");
-						Variable.setSizeOrder("normal");
+						Variable.setSeatOrder("front");
+						Variable.setSizeOrder("lungo");
 					}
 				});
 		

@@ -155,8 +155,8 @@ public class Fragment_ServicePage extends Fragment{
 				confirmDialog.show();
 				
 				Variable.setTasteOrder("openstorage");	
-				Variable.setSeatOrder("driver");
-				Variable.setSizeOrder("normal");
+				Variable.setSeatOrder("front");
+				Variable.setSizeOrder("lungo");
 			}
 		});
 
@@ -176,8 +176,8 @@ public class Fragment_ServicePage extends Fragment{
 						confirmDialog.show();
 						
 						Variable.setTasteOrder("closestorage");	
-						Variable.setSeatOrder("driver");
-						Variable.setSizeOrder("normal");
+						Variable.setSeatOrder("front");
+						Variable.setSizeOrder("lungo");
 					}
 				});		
 		
@@ -198,8 +198,8 @@ public class Fragment_ServicePage extends Fragment{
 				confirmDialog.show();
 				
 				Variable.setTasteOrder("stop");
-				Variable.setSeatOrder("driver");
-				Variable.setSizeOrder("normal");
+				Variable.setSeatOrder("front");
+				Variable.setSizeOrder("lungo");
 	
 			}
 		});
@@ -219,8 +219,8 @@ public class Fragment_ServicePage extends Fragment{
 				confirmDialog.show();
 				
 				Variable.setTasteOrder("continue");	
-				Variable.setSeatOrder("driver");
-				Variable.setSizeOrder("normal");
+				Variable.setSeatOrder("front");
+				Variable.setSizeOrder("lungo");
 	
 			}
 		});

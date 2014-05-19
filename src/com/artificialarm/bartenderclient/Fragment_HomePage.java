@@ -253,7 +253,7 @@ public class Fragment_HomePage extends Fragment {
     			
     			// schauen ob in category enthalten
     			if(Variable.getCategory()[0].equals(OrderString)){
-    					Variable.setTasteOrder("coffee");
+    					Variable.setTasteOrder(Variable.getTaste()[0]);
     	    			REQUESTCODE = 1235;
     	    			
     					// Gibt dir die Anweisung die Gr��e zu w�hlen
@@ -271,7 +271,7 @@ public class Fragment_HomePage extends Fragment {
     	    			
     			}
     			else if(Variable.getCategory()[1].equals(OrderString)){
-    					Variable.setTasteOrder("coffee");
+    					Variable.setTasteOrder(Variable.getTaste()[1]);
     	    			REQUESTCODE = 1235;
     	    			
     					// Gibt dir die Anweisung die Gr��e zu w�hlen
@@ -287,7 +287,7 @@ public class Fragment_HomePage extends Fragment {
     	    			startVoiceRecognition();
 				}
     			else if(Variable.getCategory()[2].equals(OrderString)){
-    					Variable.setTasteOrder("coffee");
+    					Variable.setTasteOrder(Variable.getTaste()[2]);
     	    			REQUESTCODE = 1235;
     	    			
     					// Gibt dir die Anweisung die Gr��e zu w�hlen
@@ -332,7 +332,7 @@ public class Fragment_HomePage extends Fragment {
     			
     			// schauen ob in category enthalten
     			if(Variable.getCategory()[0].equals(OrderString)){
-    					Variable.setTasteOrder("juice");
+    					Variable.setTasteOrder(Variable.getTaste()[0]);
     					Variable.setSizeOrder("lungo");
     	    			REQUESTCODE = 1236;
     	    			speakOut("Please choose your seat!");
@@ -346,7 +346,7 @@ public class Fragment_HomePage extends Fragment {
     	    			startVoiceRecognition();
     			}
     			else if(Variable.getCategory()[1].equals(OrderString)){
-    					Variable.setTasteOrder("juice");
+    					Variable.setTasteOrder(Variable.getTaste()[1]);
     					Variable.setSizeOrder("lungo");
     	    			REQUESTCODE = 1236;
     	    			speakOut("Please choose your seat!");
@@ -360,7 +360,7 @@ public class Fragment_HomePage extends Fragment {
     	    			startVoiceRecognition();
 				}
     			else if(Variable.getCategory()[2].equals(OrderString)){
-    					Variable.setTasteOrder("juice");
+    					Variable.setTasteOrder(Variable.getTaste()[2]);
     					Variable.setSizeOrder("lungo");
     	    			REQUESTCODE = 1236;
     	    			speakOut("Please choose your seat!");
@@ -405,7 +405,7 @@ public class Fragment_HomePage extends Fragment {
     			
     			// schauen ob in category enthalten
     			if(Variable.getCategory()[0].equals(OrderString)){
-    					Variable.setTasteOrder("tea");
+    					Variable.setTasteOrder(Variable.getTaste()[0]);
     					Variable.setSizeOrder("lungo");
     	    			REQUESTCODE = 1236;
     	    			speakOut("Please choose your seat!");
@@ -419,7 +419,7 @@ public class Fragment_HomePage extends Fragment {
     	    			startVoiceRecognition();
     			}
     			else if(Variable.getCategory()[1].equals(OrderString)){
-    					Variable.setTasteOrder("tea");
+    					Variable.setTasteOrder(Variable.getTaste()[1]);
     					Variable.setSizeOrder("lungo");
     	    			REQUESTCODE = 1236;
     	    			speakOut("Please choose your seat!");
@@ -433,7 +433,7 @@ public class Fragment_HomePage extends Fragment {
     	    			startVoiceRecognition();
 				}
     			else if(Variable.getCategory()[2].equals(OrderString)){
-    					Variable.setTasteOrder("tea");
+    					Variable.setTasteOrder(Variable.getTaste()[2]);
     					Variable.setSizeOrder("lungo");
     	    			REQUESTCODE = 1236;
     	    			speakOut("Please choose your seat!");

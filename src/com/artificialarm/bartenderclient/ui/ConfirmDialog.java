@@ -7,10 +7,12 @@ import com.artificialarm.bartenderclient.Fragment_SeatPage;
 import com.artificialarm.bartenderclient.MainActivity;
 import com.example.bartenderclient.R;
 import Database.Variable;
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageButton;
@@ -85,8 +87,18 @@ public class ConfirmDialog extends Dialog {
 				
 
 				}
+				
+				FragmentTransaction ft = ((Activity)context).getFragmentManager().beginTransaction();
+				Fragment_HomePage fragment_HomePage = new Fragment_HomePage();
+				ft.replace(R.id.homepage_fragment, fragment_HomePage);
+				MainActivity.setPage(1);
+				ft.commit();
+				
 			}
 		});
+		
+		
+		
 		return confirmDialog;
 	}
 	

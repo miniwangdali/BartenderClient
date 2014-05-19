@@ -28,6 +28,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -40,6 +41,7 @@ public class MainActivity extends Activity {
 	// Bluetooth
     private static final int REQUEST_ENABLE_BT = 1;
     public static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
+    private static int page = 1;
    
     TextView text;
     Button button;
@@ -67,7 +69,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		
-		// Dialog mit dem Wartezeichen fürs Verbinden
+		// Dialog mit dem Wartezeichen fï¿½rs Verbinden
 		customProgressDialog = CustomProgressDialog.createDialog(this);
 		customProgressDialog.setMessage("connecting to the bartender...");
 		customProgressDialog.show();
@@ -172,14 +174,14 @@ public class MainActivity extends Activity {
 	                 }
 	             
 	            }
-	            // Anweisung, wenn kein Gerät gefunden wird
+	            // Anweisung, wenn kein Gerï¿½t gefunden wird
 	            else{
 	            	/*if(customProgressDialog != null){
 	            		customProgressDialog.dismiss();
 	            	}
 			        Toast.makeText(getApplicationContext(), "Sorry, your device is disconnected", Toast.LENGTH_LONG).show();*/
 	            	
-	            	// schreibt in msg.what eine eins um zu sagen, dass das Gerät nicht verbunden ist
+	            	// schreibt in msg.what eine eins um zu sagen, dass das Gerï¿½t nicht verbunden ist
 	            	
 	            	Message msg = new Message();
 	            	msg.what = 1;
@@ -193,7 +195,7 @@ public class MainActivity extends Activity {
 	    
 	   public void find() {
 		   
-		   // Anweisung: wenn schon nach Geräten gesucht wird abbrechen und neu starten, sonst Discovery starten -> Broadcast Receiver
+		   // Anweisung: wenn schon nach Gerï¿½ten gesucht wird abbrechen und neu starten, sonst Discovery starten -> Broadcast Receiver
 		   
 	       if (btAdapter.isDiscovering()) {
 	           // the button is pressed when it discovers, so cancel the discovery
@@ -225,7 +227,7 @@ public class MainActivity extends Activity {
 		        
 		  //      Toast.makeText(getApplicationContext(), "Now your device is connected", Toast.LENGTH_LONG).show();*/
 		        
-		        // schreibt die null in msg.what -> Handler, gibt aus das das Gerät verbunden ist
+		        // schreibt die null in msg.what -> Handler, gibt aus das das Gerï¿½t verbunden ist
 		        Message msg = new Message();
 		        msg.what = 0;
 		        handler.sendMessage(msg);
@@ -254,7 +256,16 @@ public class MainActivity extends Activity {
 
 	// Daten empfangen 
 	  
-	  public class ConnectedThread extends Thread {
+	  public static int getPage() {
+		return page;
+	}
+
+
+	public static void setPage(int page) {
+		MainActivity.page = page;
+	}
+
+	public class ConnectedThread extends Thread {
 		 
 
 		  public void run() {
@@ -294,7 +305,7 @@ public class MainActivity extends Activity {
 				
 // daten empfangen				
 				
-			  // für das Erhalten von Daten
+			  // fï¿½r das Erhalten von Daten
 			case 2:
 				// Anweisung
 		        
@@ -321,6 +332,24 @@ public class MainActivity extends Activity {
 			}
 		  }
 	  };
-	   
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event){
+		switch (keyCode) {
+		case KeyEvent.KEYCODE_BACK:
+			if(page == 1){
+				finish();
+			}else{
+				super.onKeyDown(keyCode, event);
+			}
+			break;
+		case KeyEvent.KEYCODE_MENU:
+			break;
+		default:
+			break;
+		}
+		return super.onKeyDown(keyCode, event);
+			
+	}
 	
+	  
 }

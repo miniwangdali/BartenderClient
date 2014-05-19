@@ -99,6 +99,7 @@ public class Fragment_HomePage extends Fragment {
 					ft.replace(R.id.homepage_fragment, fragment_CustomPage);
 					ft.addToBackStack(null);
 					ft.commit();	
+					MainActivity.setPage(2);
 				}
 				else{
 					// wenn schon ein Getrï¿½nk bestellt wurde	
@@ -106,7 +107,7 @@ public class Fragment_HomePage extends Fragment {
 				
 				// das Getrï¿½nk wird in Variable TasteOrder gespeichert
 				Variable.setTasteOrder(favDrink.getDrinkCount(list));
-				// es wird immer ein großer für den fahrer bestellt
+				// es wird immer ein groï¿½er fï¿½r den fahrer bestellt
 				Variable.setSizeOrder("lungo");
 				Variable.setSeatOrder("front");
 				
@@ -135,7 +136,7 @@ public class Fragment_HomePage extends Fragment {
 				ft.replace(R.id.homepage_fragment, fragment_CustomPage);
 				ft.addToBackStack(null);
 				ft.commit();
-				
+				MainActivity.setPage(2);
 			}
 		});
 	

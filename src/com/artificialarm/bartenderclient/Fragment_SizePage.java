@@ -34,6 +34,8 @@ public class Fragment_SizePage extends Fragment{
 		}
 		linearLayout.addView(finalLayout, 1);
 		
+		
+		
 		Button normalbtn = (Button)view.findViewById(R.id.normalBtn);
 		normalbtn.setOnClickListener(new OnClickListener() {
 			

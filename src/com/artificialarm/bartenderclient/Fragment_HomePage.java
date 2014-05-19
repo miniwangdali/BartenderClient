@@ -36,7 +36,7 @@ public class Fragment_HomePage extends Fragment {
 	Button btn;
 	ArrayList<String> results;
 	private TextToSpeech tts;
-	static int REQUESTCODE = 1234;
+	static int REQUESTCODE;
 	
 	
 
@@ -81,6 +81,8 @@ public class Fragment_HomePage extends Fragment {
 			@Override
 			public void onClick(View v) {
 				
+
+				
 				Database.DatabaseOpenHelper db = new Database.DatabaseOpenHelper(getActivity());
 				
 				// schreibt die schon bestellten Getrï¿½nke in eine List
@@ -104,6 +106,9 @@ public class Fragment_HomePage extends Fragment {
 				
 				// das Getrï¿½nk wird in Variable TasteOrder gespeichert
 				Variable.setTasteOrder(favDrink.getDrinkCount(list));
+				// es wird immer ein großer für den fahrer bestellt
+				Variable.setSizeOrder("lungo");
+				Variable.setSeatOrder("front");
 				
 				//Bestï¿½tigen des Favorite Drinks und der Sitzposition Fahrer 
 				
@@ -186,6 +191,9 @@ public class Fragment_HomePage extends Fragment {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				
+				
+				REQUESTCODE = 1234;
+				
 				// Gibt dir die Anweisung ein Getrï¿½nk zu wï¿½hlen
     			speakOut("Please choose your drink!");
     			
@@ -259,6 +267,8 @@ public class Fragment_HomePage extends Fragment {
     					}
     	    			
     	    			startVoiceRecognition();
+    	    			
+    	    			
     			}
     			else if(Variable.getCategory()[1].equals(OrderString)){
     					Variable.setTasteOrder("coffee");

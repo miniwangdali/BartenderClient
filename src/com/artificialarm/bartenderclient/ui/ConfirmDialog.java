@@ -1,10 +1,15 @@
 package com.artificialarm.bartenderclient.ui;
 
 import java.io.IOException;
+
+import com.artificialarm.bartenderclient.Fragment_HomePage;
+import com.artificialarm.bartenderclient.Fragment_SeatPage;
 import com.artificialarm.bartenderclient.MainActivity;
 import com.example.bartenderclient.R;
 import Database.Variable;
 import android.app.Dialog;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.view.Gravity;
 import android.view.View;
@@ -53,6 +58,8 @@ public class ConfirmDialog extends Dialog {
 					
 					// Schlie�t das Dialogfenster
 					confirmDialog.dismiss();
+					
+
 				}
 
 				else{

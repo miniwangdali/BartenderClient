@@ -21,12 +21,12 @@ public class SendData {
 			//Variable.getTaste()[0]
 			if (Variable.getTasteOrder().equals(Variable.getTaste()[0])){
 			
-				if (Variable.getSizeOrder().equals("normal")){
+				if (Variable.getSizeOrder().equals("lungo")){
 	
 					sendString="111";
 					return sendString;
 				}
-				else if (Variable.getSizeOrder().equals("small")){
+				else if (Variable.getSizeOrder().equals("espresso")){
 					sendString="112";
 					return sendString;
 				}
@@ -38,12 +38,12 @@ public class SendData {
 			//Variable.getTaste()[1]
 			else if (Variable.getTasteOrder().equals(Variable.getTaste()[1])){	
 				
-				if (Variable.getSizeOrder().equals("normal")){
+				if (Variable.getSizeOrder().equals("lungo")){
 					
 					sendString="121";
 					return sendString;
 				}
-				else if (Variable.getSizeOrder().equals("small")){
+				else if (Variable.getSizeOrder().equals("espresso")){
 					sendString="122";
 					return sendString;
 				}
@@ -55,12 +55,12 @@ public class SendData {
 			//Variable.getTaste()[2]
 			else if (Variable.getTasteOrder().equals(Variable.getTaste()[2])){
 				
-				if (Variable.getSizeOrder().equals("normal")){
+				if (Variable.getSizeOrder().equals("lungo")){
 					
 					sendString="131";
 					return sendString;
 				}
-				else if (Variable.getSizeOrder().equals("small")){
+				else if (Variable.getSizeOrder().equals("espresso")){
 					sendString="132";
 					return sendString;
 				}
@@ -97,12 +97,12 @@ public class SendData {
 			//Variable.getTaste()[0]
 			if (Variable.getTasteOrder().equals(Variable.getTaste()[0])){
 			
-				if (Variable.getSizeOrder().equals("normal")){
+				if (Variable.getSizeOrder().equals("lungo")){
 	
 					sendString="211";
 					return sendString;
 				}
-				else if (Variable.getSizeOrder().equals("small")){
+				else if (Variable.getSizeOrder().equals("espresso")){
 					sendString="212";
 					return sendString;
 				}
@@ -114,12 +114,12 @@ public class SendData {
 			//Variable.getTaste()[1]
 			else if (Variable.getTasteOrder().equals(Variable.getTaste()[1])){	
 				
-				if (Variable.getSizeOrder().equals("normal")){
+				if (Variable.getSizeOrder().equals("lungo")){
 					
 					sendString="221";
 					return sendString;
 				}
-				else if (Variable.getSizeOrder().equals("small")){
+				else if (Variable.getSizeOrder().equals("espresso")){
 					sendString="222";
 					return sendString;
 				}
@@ -131,12 +131,12 @@ public class SendData {
 			//Variable.getTaste()[2]
 			else if (Variable.getTasteOrder().equals(Variable.getTaste()[2])){
 				
-				if (Variable.getSizeOrder().equals("normal")){
+				if (Variable.getSizeOrder().equals("lungo")){
 					
 					sendString="231";
 					return sendString;
 				}
-				else if (Variable.getSizeOrder().equals("small")){
+				else if (Variable.getSizeOrder().equals("espresso")){
 					sendString="232";
 					return sendString;
 				}

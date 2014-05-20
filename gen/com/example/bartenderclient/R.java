@@ -37,10 +37,10 @@ public final class R {
         public static final int goselector=0x7f020014;
         public static final int ic_bartender=0x7f020015;
         public static final int ic_launcher=0x7f020016;
-        public static final int lightgray=0x7f020043;
-        public static final int lightyellow=0x7f020044;
+        public static final int lightgray=0x7f020044;
+        public static final int lightyellow=0x7f020045;
         public static final int line=0x7f020017;
-        public static final int milk=0x7f020042;
+        public static final int milk=0x7f020043;
         public static final int myfavor=0x7f020018;
         public static final int myfavor_pressed=0x7f020019;
         public static final int myfavorselector=0x7f02001a;
@@ -75,15 +75,16 @@ public final class R {
         public static final int rearseatselector=0x7f020037;
         public static final int registbutton=0x7f020038;
         public static final int seat=0x7f020039;
-        public static final int shadeshape=0x7f02003a;
-        public static final int shelf=0x7f02003b;
-        public static final int shelf2=0x7f02003c;
-        public static final int spinner_normal=0x7f02003d;
-        public static final int spinner_selected=0x7f02003e;
-        public static final int spinnerselector=0x7f02003f;
-        public static final int textofslide=0x7f020040;
-        public static final int white=0x7f020045;
-        public static final int zqlayoutshape=0x7f020041;
+        public static final int seat2=0x7f02003a;
+        public static final int shadeshape=0x7f02003b;
+        public static final int shelf=0x7f02003c;
+        public static final int shelf2=0x7f02003d;
+        public static final int spinner_normal=0x7f02003e;
+        public static final int spinner_selected=0x7f02003f;
+        public static final int spinnerselector=0x7f020040;
+        public static final int textofslide=0x7f020041;
+        public static final int white=0x7f020046;
+        public static final int zqlayoutshape=0x7f020042;
     }
     public static final class id {
         public static final int attestBtn=0x7f080020;

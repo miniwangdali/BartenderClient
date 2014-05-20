@@ -10,6 +10,7 @@ public class Variable {
 	private static String categoryOrder;
 	private static String[] taste = {"coffee", "juice", "tea"};
 	private static String[] category = {"Coffee", "Juice", "Tea"};
+	private static int refill;
 	
 	public Variable(){
 		
@@ -90,6 +91,14 @@ public class Variable {
 
 	public static void setCategoryOrder(String categoryOrder) {
 		Variable.categoryOrder = categoryOrder;
+	}
+
+	public static int getRefill() {
+		return refill;
+	}
+
+	public static void setRefill(int refill) {
+		Variable.refill = refill;
 	}
 
 

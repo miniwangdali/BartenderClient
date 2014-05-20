@@ -226,6 +226,30 @@ public class Fragment_CustomPage extends Fragment {
 		});
 		
 		
+		
+		// refill-Button	
+		Button refillButton = (Button)view.findViewById(R.id.refillBtn);
+		refillButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				// Anweisung, was beim Dr�cken des clean-Buttons geschehen soll
+				// Anweisung, falls die Maschine gereinigt werden soll
+				// �ffnet wieder einen Dialog
+
+				ConfirmDialog confirmDialog = ConfirmDialog.createDialog(getActivity());
+				confirmDialog.setMessage("Do you really want to refill the cup? Don't forget to put your cup inside!");
+				confirmDialog.show();
+				
+				Variable.setRefill(2);
+
+			}
+		});
+		
+		
+		
+		
 		// clean-Button	
 				Button cleanButton = (Button)view.findViewById(R.id.cleanBtn);
 				cleanButton.setOnClickListener(new OnClickListener() {

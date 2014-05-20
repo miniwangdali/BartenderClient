@@ -44,6 +44,9 @@ public class Fragment_HomePage extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		View view = inflater.inflate(R.layout.fragment_homepage, container, false);
 		
+		// setzt Variable refill auf 0;
+		Variable.setRefill(0);
+		
 		
 		//aktualisiert immer die Kategorien
 		String array2[] ={"a","b","c"};
@@ -98,8 +101,8 @@ public class Fragment_HomePage extends Fragment {
 					Fragment_CustomPage fragment_CustomPage = new Fragment_CustomPage();
 					ft.replace(R.id.homepage_fragment, fragment_CustomPage);
 					ft.addToBackStack(null);
-					ft.commit();	
 					MainActivity.setPage(2);
+					ft.commit();	
 				}
 				else{
 					// wenn schon ein Getrï¿½nk bestellt wurde	
@@ -107,7 +110,7 @@ public class Fragment_HomePage extends Fragment {
 				
 				// das Getrï¿½nk wird in Variable TasteOrder gespeichert
 				Variable.setTasteOrder(favDrink.getDrinkCount(list));
-				// es wird immer ein groï¿½er fï¿½r den fahrer bestellt
+				// es wird immer ein großer für den fahrer bestellt
 				Variable.setSizeOrder("lungo");
 				Variable.setSeatOrder("front");
 				

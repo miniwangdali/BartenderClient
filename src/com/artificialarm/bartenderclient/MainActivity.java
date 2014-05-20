@@ -247,6 +247,7 @@ public class MainActivity extends Activity {
 	        Log.d("TAGMICHI_1", Variable.getSeatOrder());
 	        Log.d("TAGMICHI_2", Variable.getSizeOrder());
 	        Log.d("TAGMICHI_3", Variable.getTasteOrder());
+	        Log.d("TAGMICHI_4", " " +Variable.getRefill());
 	        Log.d("TAGMICHI", send);
 	     
 	       // Sendet send

@@ -46,6 +46,7 @@ public class ConfirmDialog extends Dialog {
 			public void onClick(View v) {
 				// das wird beim Confirm-Button geklickt gemacht:
 				
+				// Zusatzfunktionen
 				if (Variable.getTasteOrder().equals("clean") || Variable.getTasteOrder().equals("stop") ||Variable.getTasteOrder().equals("continue") ||Variable.getTasteOrder().equals("openstorage") ||Variable.getTasteOrder().equals("closestorage")){
 					
 					// Anweisung, wenn der Clean-Button zuvor ausgewï¿½hlt wurde!
@@ -61,9 +62,58 @@ public class ConfirmDialog extends Dialog {
 					// Schlieï¿½t das Dialogfenster
 					confirmDialog.dismiss();
 					
+					// geht auf die HomePage zurück, wenn
+					if(Variable.getTasteOrder().equals("clean")){
+						
+						FragmentTransaction ft = ((Activity)context).getFragmentManager().beginTransaction();
+						Fragment_HomePage fragment_HomePage = new Fragment_HomePage();
+						ft.replace(R.id.homepage_fragment, fragment_HomePage);
+						MainActivity.setPage(1);
+						ft.commit();
 
+					}
+		
+					
 				}
-
+				// refill
+				else if( Variable.getRefill()==2){
+					
+					confirmDialog.dismiss();
+					Variable.setRefill(1);
+					
+				}
+				else if( Variable.getRefill()==1){
+					
+					// schreib das bestellte Getrï¿½nk und die Zeit in die Datenbank
+					Database.Time time = new Database.Time();
+					
+					Database.DatabaseOpenHelper db = new Database.DatabaseOpenHelper(context);
+					db.writeInDatabase(new Variable(Variable.getTasteOrder(), time.getcurrentTime()));
+					
+					
+					// sendet die Bestellung per Bluetooth zum Arduino
+					try {
+						
+						MainActivity main = new MainActivity();
+						main.sendData();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					// Schlieï¿½t das Dialogfenster
+					confirmDialog.dismiss();
+					
+					FragmentTransaction ft = ((Activity)context).getFragmentManager().beginTransaction();
+					Fragment_HomePage fragment_HomePage = new Fragment_HomePage();
+					ft.replace(R.id.homepage_fragment, fragment_HomePage);
+					MainActivity.setPage(1);
+					ft.commit();
+					
+				}
+				
+				
+				// normale Bestellung
 				else{
 				// schreib das bestellte Getrï¿½nk und die Zeit in die Datenbank
 				Database.Time time = new Database.Time();
@@ -85,15 +135,22 @@ public class ConfirmDialog extends Dialog {
 				// Schlieï¿½t das Dialogfenster
 				confirmDialog.dismiss();
 				
-
-				}
-				
 				FragmentTransaction ft = ((Activity)context).getFragmentManager().beginTransaction();
 				Fragment_HomePage fragment_HomePage = new Fragment_HomePage();
 				ft.replace(R.id.homepage_fragment, fragment_HomePage);
 				MainActivity.setPage(1);
 				ft.commit();
-				
+
+				}
+/*			
+ * wurde in die einzelnen if schleifen eingebunden
+ * 	
+				FragmentTransaction ft = ((Activity)context).getFragmentManager().beginTransaction();
+				Fragment_HomePage fragment_HomePage = new Fragment_HomePage();
+				ft.replace(R.id.homepage_fragment, fragment_HomePage);
+				MainActivity.setPage(1);
+				ft.commit();
+*/				
 			}
 		});
 		

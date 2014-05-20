@@ -151,7 +151,7 @@ public class Fragment_ServicePage extends Fragment{
 				// �ffnet wieder einen Dialog
 
 				ConfirmDialog confirmDialog = ConfirmDialog.createDialog(getActivity());
-				confirmDialog.setMessage("Do you really want to clean the coffee machine? If so put a cup below the machine!");
+				confirmDialog.setMessage("Do you really want to open the storage box?");
 				confirmDialog.show();
 				
 				Variable.setTasteOrder("openstorage");	
@@ -172,7 +172,7 @@ public class Fragment_ServicePage extends Fragment{
 						// �ffnet wieder einen Dialog
 
 						ConfirmDialog confirmDialog = ConfirmDialog.createDialog(getActivity());
-						confirmDialog.setMessage("Do you really want to clean the coffee machine? If so put a cup below the machine!");
+						confirmDialog.setMessage("Do you really want to close the storage box?");
 						confirmDialog.show();
 						
 						Variable.setTasteOrder("closestorage");	
